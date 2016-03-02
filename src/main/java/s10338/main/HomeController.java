@@ -15,3 +15,7 @@ public class HomeController {
         return "welcome";
     }
 }
+
+
+
+Sprawdź gdzie przechowywana jest nazwa do dispatcherqa bo krzyczy o nią
