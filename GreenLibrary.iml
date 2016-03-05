@@ -17,10 +17,10 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml</file>
-        </fileset>
         <fileset id="web DispatcherServlet servlet context" name="MVC DispatcherServlet servlet context" removed="true" />
+        <fileset id="fileset2" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/DispatcherServlet-context.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
