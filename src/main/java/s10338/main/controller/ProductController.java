@@ -9,16 +9,15 @@ import s10338.main.domain.repository.ProductRepository;
 
 @Controller
 public class ProductController {
-	
-	@Autowired
-	private ProductRepository productRepository;
 
-	@RequestMapping("/products")
-	public String list(Model model) {
-		model.addAttribute("products", productRepository.getAllProducts());
-		return "products";
-	}
-	
-	
+    @Autowired
+    private ProductRepository productRepository;
+
+    @RequestMapping("/products")
+    public String list(Model model) {
+        model.addAttribute("products", productRepository.getAllProducts());
+        return "products";
+    }
+
 
 }
