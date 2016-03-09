@@ -8,7 +8,7 @@ import s10338.main.service.ProductService;
 
 
 @Controller
-@RequestMapping(value = "/products")
+@RequestMapping("/products")
 public class ProductController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class ProductController {
         return "products";
     }
 
-    @RequestMapping(value = "/all")
+    @RequestMapping("/all")
     public String listAll(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
