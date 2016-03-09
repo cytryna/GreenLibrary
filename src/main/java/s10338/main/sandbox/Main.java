@@ -1,5 +1,7 @@
 package s10338.main.sandbox;
 
+import s10338.main.domain.Customer;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -24,28 +26,20 @@ public class Main {
             System.out.println("yo");
             int i = 0;
 
-            for (int j = 0; j < 10; j++) {
-                System.out.println(j);
-            }
+//            for (int j = 0; j < 10; j++) {
+                System.out.println("Save Customers");
+//            }
 
-
-//        Employee employee  = new Employee();
-//        employee.setFirstName("Jan");
-//        employee.setLastName("Nowak");
-//        employee.setSalary(443.0);
-//            LocalDate.parse("1981-01-19")
             entityManager.getTransaction().begin();
 
+            entityManager.persist(new Customer("Radek", "Warszawa"));
+            entityManager.persist(new Customer("Jacek", "Radom"));
+            entityManager.persist(new Customer("Monika", "Warszawa"));
+            entityManager.persist(new Customer("Weronika"));
+            entityManager.persist(new Customer("Oliwia", "Warszawa"));
+            entityManager.persist(new Customer("Marta"));
 
-            saveBook("Lalka", "Bolesław", "Prus", stringToDate("1981-01-19"), 112);
-            saveBook("W pustyni i w puszczy", "Henryk", "Sienkiewicz", stringToDate("2011-01-19"), 113);
-            saveBook("Dziady", "Adma", "Mickiewicz", stringToDate("2010-11-09"), 302);
             entityManager.getTransaction().commit();
-
-
-//            Book book = entityManager.find(Book.class, 1L);
-//            entityManager.persist(autor);
-//            entityManager.persist(book);
 
             entityManager.close();
             entityManagerFactory.close();

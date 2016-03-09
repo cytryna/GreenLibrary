@@ -1,28 +1,30 @@
 package s10338.main.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Customer {
+
+    @Id
+    @GeneratedValue
     private int customerId;
     private String name;
     private String address;
     private String onOfOrdersMade;
 
-    public Customer(int customerId, String name) {
-        this.customerId = customerId;
+    public Customer(String name) {
         this.name = name;
     }
 
-    public Customer(int customerId, String name, String address) {
-        this.customerId = customerId;
+    public Customer(String name, String address) {
         this.name = name;
         this.address = address;
     }
 
     public int getCustomerId() {
         return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
     }
 
     public String getName() {
