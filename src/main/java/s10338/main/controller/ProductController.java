@@ -8,18 +8,19 @@ import s10338.main.service.ProductService;
 
 
 @Controller
+@RequestMapping(value = "/products")
 public class ProductController {
 
     @Autowired
     private ProductService productService;
 
-    @RequestMapping("/products")
+    @RequestMapping
     public String list(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
     }
 
-    @RequestMapping("/products/all")
+    @RequestMapping(value = "/all")
     public String listAll(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "products";
