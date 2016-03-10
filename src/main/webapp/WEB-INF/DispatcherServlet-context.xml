@@ -16,4 +16,7 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <!--<context:annotation-config/> Patryka sugestia w sprawie wstrzykiwania entityMengera-->
+    <!--<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/> -->
+
 </beans>

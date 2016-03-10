@@ -14,6 +14,10 @@ public class Customer {
     private String address;
     private String onOfOrdersMade;
 
+
+    public Customer() {
+    }
+
     public Customer(String name) {
         this.name = name;
     }

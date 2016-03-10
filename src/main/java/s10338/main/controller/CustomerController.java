@@ -14,6 +14,7 @@ public class CustomerController {
 
     @RequestMapping("/customers")
     public String welcome(Model model) {
+        customerService.getAllCustomers().forEach(customer -> System.out.println(customer.getName()));
         model.addAttribute("customers", customerService.getAllCustomers());
         return "customers";
     }

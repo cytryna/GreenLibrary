@@ -13,8 +13,8 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
 
 //    @Autowired
-   private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-//    @PersistenceContext
+    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+//    @PersistenceContext(unitName = "myDatabase")
     private EntityManager em;
 
     public CustomerRepositoryImpl() {
