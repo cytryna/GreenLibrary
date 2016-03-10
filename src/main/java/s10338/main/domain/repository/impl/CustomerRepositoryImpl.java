@@ -13,13 +13,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
 
 //    @Autowired
-    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+//    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
 //    @PersistenceContext(unitName = "myDatabase")
     private EntityManager em;
 
-    public CustomerRepositoryImpl() {
-        em = entityManagerFactory.createEntityManager();
-    }
+//    public CustomerRepositoryImpl() {
+//        em = entityManagerFactory.createEntityManager();
+//    }
 
     @Override
     public List<Customer> getAllCustomers() {
