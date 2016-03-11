@@ -7,6 +7,7 @@ import s10338.main.domain.repository.ProductRepository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Repository
@@ -46,6 +47,14 @@ public class InMemoryProductRepository implements ProductRepository {
     @Override
     public List<Product> getProductsByCategory(String category) {
         return listOfProducts.stream().filter(product -> product.getCategory().equals(category)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Product> getProductsByFilter(Map<String, List<String>> filter) {
+        return listOfProducts.stream()
+                .filter(product -> filter.get("category").contains(product.getCategory()))
+                .filter(product -> filter.get("brand").contains(product.getManufacturer()))
+                .collect(Collectors.toList());
     }
 
     public Product getProductById(String productId) {

@@ -7,6 +7,7 @@ import s10338.main.domain.repository.ProductRepository;
 import s10338.main.service.ProductService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by rwichrowski on 07.03.16.
@@ -26,4 +27,11 @@ public class ProductServiseImpl implements ProductService {
     public List<Product> getProductsByCategory(String category) {
         return productRepository.getProductsByCategory(category);
     }
+
+    @Override
+    public List<Product> getProductsByFilter(Map<String, List<String>> filter) {
+        return productRepository.getProductsByFilter(filter);
+    }
+
+
 }
