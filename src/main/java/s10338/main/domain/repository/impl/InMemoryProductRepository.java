@@ -7,6 +7,7 @@ import s10338.main.domain.repository.ProductRepository;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryProductRepository implements ProductRepository {
@@ -40,6 +41,11 @@ public class InMemoryProductRepository implements ProductRepository {
 
     public List<Product> getAllProducts() {
         return listOfProducts;
+    }
+
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        return listOfProducts.stream().filter(product -> product.getCategory().equals(category)).collect(Collectors.toList());
     }
 
     public Product getProductById(String productId) {
