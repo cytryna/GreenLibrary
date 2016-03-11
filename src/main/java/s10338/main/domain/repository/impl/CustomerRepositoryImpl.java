@@ -12,14 +12,8 @@ import java.util.List;
 public class CustomerRepositoryImpl implements CustomerRepository {
 
 
-//    @Autowired
-//    private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
-//    @PersistenceContext(unitName = "myDatabase")
+    @PersistenceContext(unitName="myDatabase")
     private EntityManager em;
-
-//    public CustomerRepositoryImpl() {
-//        em = entityManagerFactory.createEntityManager();
-//    }
 
     @Override
     public List<Customer> getAllCustomers() {
