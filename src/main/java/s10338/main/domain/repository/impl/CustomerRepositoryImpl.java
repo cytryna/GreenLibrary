@@ -12,7 +12,7 @@ import java.util.List;
 public class CustomerRepositoryImpl implements CustomerRepository {
 
 
-    @PersistenceContext(unitName="myDatabase")
+    @PersistenceContext
     private EntityManager em;
 
     @Override
