@@ -13,4 +13,6 @@ public interface ProductService {
 
     List<Product> getProductsByFilter(Map<String, List<String>> filter);
 
+    Product getProductById(String id);
+
 }
