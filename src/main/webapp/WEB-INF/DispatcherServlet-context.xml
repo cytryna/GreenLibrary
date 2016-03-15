@@ -20,6 +20,9 @@
         <property name="persistenceUnitName" value="myDatabase" />
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
 
 
     <!--<context:annotation-config/>-->

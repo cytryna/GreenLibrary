@@ -1,7 +1,7 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
-<%--<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>--%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
@@ -16,7 +16,7 @@
 				<h1>Produkty</h1>
 				<p>Dodaj produkty</p>
 			</div>
-			<%--<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">wyloguj</a>	--%>
+			<%--<a href="<c:url value="/j_spring_security_logout" />" class="btn btn-danger btn-mini pull-right">wyloguj</a>--%>
 		</div>
 	</section>
 	<section class="container">
@@ -25,7 +25,7 @@
 				<legend>Dodaj nowy produkt</legend>
 
 				<div class="form-group">
-					<label class="control-label col-lg-2 col-lg-2" for="productId">ID productu</label>
+					<label class="control-label col-lg-2 col-lg-2" for="productId"><spring:message code="addProdcut.form.productId.label"/></label>
 					<div class="col-lg-10">
 						<form:input id="productId" path="productId" type="text" class="form:input-large"/>
 					</div>
