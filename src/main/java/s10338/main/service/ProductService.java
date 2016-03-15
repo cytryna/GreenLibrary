@@ -17,4 +17,5 @@ public interface ProductService {
 
     List<Product> getProductsByManufacturer(String manufacturer);
 
+    void addProduct(Product product);
 }

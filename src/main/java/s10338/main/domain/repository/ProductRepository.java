@@ -16,4 +16,6 @@ public interface ProductRepository {
     Product getProductById(String productID);
 
     List<Product> getProductsByManufacturer(String manufacturer);
+
+    void addProduct(Product product);
 }
