@@ -48,4 +48,11 @@ public class ProductController {
         model.addAttribute("product", productService.getProductById(productId));
         return "product";
     }
+
+    @RequestMapping("/product/{product}/{price}")
+    public String filterProducts(@PathVariable("product") String product, @MatrixVariable(pathVar = "price") Map filter, @RequestParam("manufacturer") String manufacturer, Model model) {
+        model.addAttribute("products", productService.getProductsByManufacturer(manufacturer));
+        // TODO: 15.03.16 Dodać implementację do wszystkich parametrów, narazie jest filtr założony tylko na manufacturer
+        return "products";
+    }
 }

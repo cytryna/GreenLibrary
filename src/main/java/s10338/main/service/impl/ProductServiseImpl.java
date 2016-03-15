@@ -37,4 +37,9 @@ public class ProductServiseImpl implements ProductService {
     public Product getProductById(String id) {
         return productRepository.getProductById(id);
     }
+
+    @Override
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        return productRepository.getProductsByManufacturer(manufacturer);
+    }
 }

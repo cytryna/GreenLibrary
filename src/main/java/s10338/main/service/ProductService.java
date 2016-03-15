@@ -15,4 +15,6 @@ public interface ProductService {
 
     Product getProductById(String id);
 
+    List<Product> getProductsByManufacturer(String manufacturer);
+
 }

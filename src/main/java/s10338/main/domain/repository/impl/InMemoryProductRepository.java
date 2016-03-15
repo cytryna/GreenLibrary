@@ -73,4 +73,9 @@ public class InMemoryProductRepository implements ProductRepository {
 
         return productById;
     }
+
+    @Override
+    public List<Product> getProductsByManufacturer(String manufacturer) {
+        return listOfProducts.stream().filter(product -> product.getManufacturer().equals(manufacturer)).collect(Collectors.toList());
+    }
 }
