@@ -10,6 +10,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <security:http auto-config="true">
+        <security:logout logout-url="/j_spring_security_logout"/>
         <security:intercept-url pattern="/products/add" access="hasRole('ROLE_ADMIN')" />
         <security:form-login login-page="/login"
                              login-processing-url="/j_spring_security_check"
