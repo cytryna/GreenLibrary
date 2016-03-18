@@ -1,11 +1,11 @@
-package s10338.main.service.impl;
+package s10338.service.impl;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import s10338.main.domain.Product;
-import s10338.main.domain.repository.ProductRepository;
-import s10338.main.service.OrderService;
+import s10338.domain.Product;
+import s10338.domain.repository.ProductRepository;
+import s10338.service.OrderService;
 
 @Service
 public class OrderServiceImpl implements OrderService {

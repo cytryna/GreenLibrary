@@ -1,8 +1,8 @@
-package s10338.main.domain.repository.impl;
+package s10338.domain.repository.impl;
 
 import org.springframework.stereotype.Repository;
-import s10338.main.domain.Product;
-import s10338.main.domain.repository.ProductRepository;
+import s10338.domain.Product;
+import s10338.domain.repository.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

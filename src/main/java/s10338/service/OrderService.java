@@ -1,4 +1,4 @@
-package s10338.main.service;
+package s10338.service;
 
 public interface OrderService {
 

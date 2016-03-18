@@ -1,4 +1,4 @@
-package s10338.main.sandbox;
+package s10338.sandbox;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

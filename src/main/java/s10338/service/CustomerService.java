@@ -1,6 +1,6 @@
-package s10338.main.service;
+package s10338.service;
 
-import s10338.main.domain.Customer;
+import s10338.domain.Customer;
 
 import java.util.List;
 

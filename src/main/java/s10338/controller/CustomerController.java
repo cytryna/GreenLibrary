@@ -1,10 +1,10 @@
-package s10338.main.controller;
+package s10338.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import s10338.main.service.CustomerService;
+import s10338.service.CustomerService;
 
 @Controller
 public class CustomerController {

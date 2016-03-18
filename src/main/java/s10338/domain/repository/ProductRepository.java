@@ -1,6 +1,6 @@
-package s10338.main.domain.repository;
+package s10338.domain.repository;
 
-import s10338.main.domain.Product;
+import s10338.domain.Product;
 
 import java.util.List;
 import java.util.Map;

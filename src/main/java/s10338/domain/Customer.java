@@ -1,4 +1,4 @@
-package s10338.main.domain;
+package s10338.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

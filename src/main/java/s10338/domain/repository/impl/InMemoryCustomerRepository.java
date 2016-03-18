@@ -1,8 +1,8 @@
 //package s10338.main.domain.repository.impl;
 //
 //import org.springframework.stereotype.Repository;
-//import s10338.main.domain.Customer;
-//import s10338.main.domain.repository.CustomerRepository;
+//import Customer;
+//import CustomerRepository;
 //
 //import java.util.ArrayList;
 //import java.util.List;

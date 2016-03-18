@@ -9,7 +9,7 @@
 
 
     <mvc:annotation-driven enable-matrix-variables="true"/>
-    <context:component-scan base-package="s10338.main" />
+    <context:component-scan base-package="s10338" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/views/" />

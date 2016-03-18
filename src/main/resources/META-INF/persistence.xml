@@ -5,8 +5,8 @@
     <persistence-unit name="myDatabase" transaction-type="RESOURCE_LOCAL">
     <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
-    <!--<class>s10338.main.sandbox.Book</class>-->
-    <class>s10338.main.domain.Customer</class>
+    <!--<class>Book</class>-->
+    <class>s10338.domain.Customer</class>
     <!--<jta-data-source>java:jboss/datasources/jbossas7development</jta-data-source>-->
     <!--<jta-data-source>java:jboss/datasources/mydatasource</jta-data-source>-->
     <properties>

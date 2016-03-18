@@ -1,9 +1,8 @@
-package s10338.main.domain.repository.impl;
+package s10338.domain.repository.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import s10338.main.domain.Customer;
-import s10338.main.domain.repository.CustomerRepository;
+import s10338.domain.Customer;
+import s10338.domain.repository.CustomerRepository;
 
 import javax.persistence.*;
 import java.util.List;

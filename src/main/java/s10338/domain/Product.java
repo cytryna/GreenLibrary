@@ -1,4 +1,4 @@
-package s10338.main.domain;
+package s10338.domain;
 
 import java.math.BigDecimal;
 

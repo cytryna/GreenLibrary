@@ -1,6 +1,6 @@
-package s10338.main.sandbox;
+package s10338.sandbox;
 
-import s10338.main.domain.Customer;
+import s10338.domain.Customer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
