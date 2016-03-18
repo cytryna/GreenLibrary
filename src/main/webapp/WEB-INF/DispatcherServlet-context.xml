@@ -9,6 +9,7 @@
 
 
     <mvc:annotation-driven enable-matrix-variables="true"/>
+    <mvc:resources mapping="/resources/" location="/resources/**"/>
     <context:component-scan base-package="s10338" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
