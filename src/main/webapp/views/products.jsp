@@ -15,7 +15,8 @@
         <div class="container">
             <h1>Produkty</h1>
             <p>Wszystkie produkty dostępne w naszym sklepie</p>
-            <img src="../resources/images/P1234.png"/>
+            <img src="resources/images/P1234.png" alt="Smiley face"/>
+            <%--<img src="../resources/images/P1234.png" alt="Smiley face"/>Niewiem dlaczego w ten sposób nie działa ?--%>
         </div>
     </div>
 </section>
