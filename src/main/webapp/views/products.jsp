@@ -15,6 +15,7 @@
         <div class="container">
             <h1>Produkty</h1>
             <p>Wszystkie produkty dostępne w naszym sklepie</p>
+            <img src="../resources/images/P1234.png"/>
         </div>
     </div>
 </section>
