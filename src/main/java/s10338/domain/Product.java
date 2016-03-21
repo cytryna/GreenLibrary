@@ -17,6 +17,7 @@ public class Product {
     private boolean discontinued;
     private String condition;
     private MultipartFile productImage;
+    private MultipartFile pdf;
 
     public Product() {
         super();
@@ -110,6 +111,14 @@ public class Product {
 
     public MultipartFile getProductImage() {
         return productImage;
+    }
+
+    public MultipartFile getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(MultipartFile pdf) {
+        this.pdf = pdf;
     }
 
     public void setProductImage(MultipartFile productImage) {

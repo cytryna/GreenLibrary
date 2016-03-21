@@ -75,15 +75,25 @@ public class ProductController {
             throw new RuntimeException("Próba wiązania niedozwolonych pól: "+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
         }
 
-        MultipartFile productImage = productToBeAdded.getProductImage();
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
 
+        MultipartFile productImage = productToBeAdded.getProductImage();
         if (productImage!=null && !productImage.isEmpty()) {
             try {
                 productImage.transferTo(new File(rootDirectory+"resources\\images\\"+productToBeAdded.getProductId() + ".png"));
             } catch (Exception e) {
                 throw new RuntimeException("Próba zapisu obrazka zakończona niepowodzeniem", e);
             }
+        }
+
+            MultipartFile pdf = productToBeAdded.getPdf();
+
+            if (pdf!=null && !pdf.isEmpty()) {
+                try {
+                    pdf.transferTo(new File(rootDirectory+"resources\\pdf\\"+productToBeAdded.getProductId() + ".pdf"));
+                } catch (Exception e) {
+                    throw new RuntimeException("Próba zapisu instrukcji pdf zakończona niepowodzeniem", e);
+                }
         }
 
         productService.addProduct(productToBeAdded);
