@@ -7,9 +7,12 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import s10338.domain.Product;
 import s10338.service.ProductService;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.Map;
 
 
@@ -66,12 +69,24 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String processAddNewProductForm(@ModelAttribute("newProduct") Product newProduct, BindingResult result) {
+    public String processAddNewProductForm(@ModelAttribute("newProduct") Product productToBeAdded, BindingResult result, HttpServletRequest request) {
         String[] suppressedFields = result.getSuppressedFields();
         if (suppressedFields.length > 0) {
             throw new RuntimeException("Próba wiązania niedozwolonych pól: "+ StringUtils.arrayToCommaDelimitedString(suppressedFields));
         }
-        productService.addProduct(newProduct);
+
+        MultipartFile productImage = productToBeAdded.getProductImage();
+        String rootDirectory = request.getSession().getServletContext().getRealPath("/");
+
+        if (productImage!=null && !productImage.isEmpty()) {
+            try {
+                productImage.transferTo(new File(rootDirectory+"resources\\images\\"+productToBeAdded.getProductId() + ".png"));
+            } catch (Exception e) {
+                throw new RuntimeException("Próba zapisu obrazka zakończona niepowodzeniem", e);
+            }
+        }
+
+        productService.addProduct(productToBeAdded);
         return "redirect:/products";
 
     }

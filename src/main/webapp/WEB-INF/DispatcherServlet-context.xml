@@ -9,7 +9,7 @@
 
 
     <mvc:annotation-driven enable-matrix-variables="true"/>
-    <mvc:resources mapping="/resource/**" location="/resources/"/>
+
     <context:component-scan base-package="s10338" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -17,13 +17,24 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+
+    <mvc:resources mapping="/resource/**" location="/resources/"/>
+
+
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="10240000"/>
+    </bean>
+
+
+
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="myDatabase" />
     </bean>
 
-    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="messages"/>
-    </bean>
+
 
 
     <!--<context:annotation-config/>-->
