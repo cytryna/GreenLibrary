@@ -15,8 +15,6 @@
         <div class="container">
             <h1>Produkty</h1>
             <p>Wszystkie produkty dostępne w naszym sklepie</p>
-            <img src="resources/images/P1234.png" alt="Smiley face"/>
-            <%--<img src="../resources/images/P1234.png" alt="Smiley face"/>Niewiem dlaczego w ten sposób nie działa ?--%>
         </div>
     </div>
 </section>
@@ -26,6 +24,7 @@
         <c:forEach items="${products}" var="product">
             <div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
                 <div class="thumbnail">
+                    <img src="<c:url value="/resource/images/${product.productId}.png"></c:url>" alt="image" style="width: 100%"/>
                     <div class="caption">
                         <h3>${product.name}</h3>
                         <p>${product.description}</p>
