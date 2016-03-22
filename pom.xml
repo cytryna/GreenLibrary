@@ -63,9 +63,8 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-oxm</artifactId>
-            <version>3.0.0.RELEASE</version>
+            <version>4.0.3.RELEASE</version>
         </dependency>
-
 
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
