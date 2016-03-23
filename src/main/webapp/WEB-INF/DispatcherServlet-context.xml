@@ -10,11 +10,11 @@
 
     <mvc:annotation-driven enable-matrix-variables="true"/>
 
-    <context:component-scan base-package="s10338" />
+    <context:component-scan base-package="s10338"/>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/views/" />
-        <property name="suffix" value=".jsp" />
+        <property name="prefix" value="/views/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -24,52 +24,50 @@
     <mvc:resources mapping="/resource/**" location="/resources/"/>
 
 
-    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10240000"/>
     </bean>
 
-    <bean class= "org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json;charset=UTF-8"/>
-                <entry key="xml" value="application/xml;charset=UTF-8"/>
-                <entry key="html" value="text/html;charset=UTF-8"/>
-            </map>
-        </property>
-        <property name="defaultViews">
-            <list>
-                <ref bean="jsonView"/>
-                <ref bean="xmlView"/>
-            </list>
-        </property>
-    </bean>
+    <!-- <bean class= "org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+         <property name="mediaTypes">
+             <map>
+                 <entry key="json" value="application/json;charset=UTF-8"/>
+                 <entry key="xml" value="application/xml;charset=UTF-8"/>
+                 <entry key="html" value="text/html;charset=UTF-8"/>
+             </map>
+         </property>
+         <property name="defaultViews">
+             <list>
+                 <ref bean="jsonView"/>
+                 <ref bean="xmlView"/>
+             </list>
+         </property>
+     </bean>
 
-    <bean id="jsonView"	class= "org.springframework.web.servlet.view.json.MappingJackson2JsonView">
-        <property name="prettyPrint" value="true"/>
-    </bean>
+     <bean id="jsonView"	class= "org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+         <property name="prettyPrint" value="true"/>
+     </bean>
 
-    <bean id="xmlView" class= "org.springframework.web.servlet.view.xml.MarshallingView">
-        <constructor-arg>
-            <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-                <property name="classesToBeBound">
-                    <list>
-                        <value>s10338.domain.Product</value>
-                    </list>
-                </property>
-            </bean>
-        </constructor-arg>
-    </bean>
+     <bean id="xmlView" class= "org.springframework.web.servlet.view.xml.MarshallingView">
+         <constructor-arg>
+             <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                 <property name="classesToBeBound">
+                     <list>
+                         <value>com.packt.webstore.domain.Product</value>
+                     </list>
+                 </property>
+             </bean>
+         </constructor-arg>
+     </bean>-->
 
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="myDatabase" />
+        <property name="persistenceUnitName" value="myDatabase"/>
     </bean>
-
-
 
 
     <!--<context:annotation-config/>-->
     <!--<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">-->
-        <!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
+    <!--<property name="entityManagerFactory" ref="entityManagerFactory" />-->
     <!--</bean>-->
     <!--<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />-->
     <!--<bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>-->
