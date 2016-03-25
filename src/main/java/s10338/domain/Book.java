@@ -16,6 +16,9 @@ public class Book {
     @Column(name = "title", nullable = false, length = 100)
     private String title;
 
+    @Column(name = "isbn", nullable = false, length = 13)
+    private String isbn;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name="AUTHOR_BOOK",
@@ -49,6 +52,14 @@ public class Book {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public List<Author> getAuthors() {

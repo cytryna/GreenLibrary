@@ -13,8 +13,9 @@ public class Author {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
-    @Column(name = "description", nullable = false, length = 1000)
-    private String description;
+    public Author(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -32,11 +33,4 @@ public class Author {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
