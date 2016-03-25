@@ -1,6 +1,7 @@
 package s10338.sandbox;
 
 import s10338.domain.Author;
+import s10338.domain.Book;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,22 +11,22 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
     private static EntityManager entityManager = entityManagerFactory.createEntityManager();
     private final static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-
-//    public static void main(String[] args) {
-//        Gielda gielda = new Gielda();
-////        gielda.setData();
-//    }
+    private List<Author> authors;
 
     public static void main(String[] args) {
-        try {
+        new Main().start();
+    }
 
-            List<Author> authors = new ArrayList<>();
+    private void start() {
+        try {
+            authors = new ArrayList<>();
             authors.add(new Author("Adam"));
             authors.add(new Author("Jan"));
             authors.add(new Author("Marcin"));
@@ -33,14 +34,26 @@ public class Main {
             authors.add(new Author("Anna"));
             authors.add(new Author("Leopold"));
 
-            int i = 0;
+            List<Book> books = new ArrayList<>();
+            books.add(createBook("Antygona"));
+            books.add(createBook("Bogurodzica"));
+            books.add(createBook("Lalka"));
+            books.add(createBook("Wesele"));
+            books.add(createBook("W pustyni i w puszczy"));
+            books.add(createBook("Pan Tadeusz"));
+            books.add(createBook("Mały Książę"));
+            books.add(createBook("O psie który jeździł koleją"));
+            books.add(createBook("W 80 dni dookoła świata"));
+            books.add(createBook("Dziady"));
+            books.add(createBook("Nie płacz, Koziołku"));
+            books.add(createBook("Powrót posła"));
+            books.add(createBook("Stara baśń"));
+            books.add(createBook("Bartek Zwycięzca"));
 
-//            for (int j = 0; j < 10; j++) {
-                System.out.println("Save Customers");
-//            }
 
             entityManager.getTransaction().begin();
             authors.stream().forEach(author -> entityManager.persist(author));
+            books.stream().forEach(book -> entityManager.persist(book));
             entityManager.getTransaction().commit();
 
 //            entityManager.persist(new Customer("Radek", "Warszawa"));
@@ -62,21 +75,20 @@ public class Main {
         }
     }
 
+    private Book createBook(String title) {
+        Book book = new Book(title);
+        book.getAuthors().add(getRandomAutor());
+        return book;
+    }
+
     private static Date stringToDate(String testDate) throws ParseException {
         return formatter.parse(testDate);
     }
 
-//    private static void saveBook(String title, String name, String lastName, Date date, int number) {
-//        Book book = new Book();
-//
-//        book.setTitle(title);
-//        book.setAutorFirstName(name);
-//        book.setAutorLastName(lastName);
-//        book.setDateRelease(date);
-//        book.setNumberPages(number);
-//        entityManager.persist(book);
-//
-//    }
-
+    public Author getRandomAutor() {
+        Random r = new Random();
+        int High = authors.size();
+        return authors.get(r.nextInt(High));
+    }
 
 }

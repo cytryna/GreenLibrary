@@ -4,17 +4,16 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "USER")
 public class User {
     @Id
-    @Column(name = "name", nullable = false, length = 15)
+    @Column(unique = true)
+    private String email;
+
+    @Column(nullable = false)
     private String name;
 
-    @Column(name = "password", nullable = false, length = 30)
+    @Column(nullable = false)
     private String password;
-
-    @Column(name = "email", unique = true, nullable = false, length = 200)
-    private String email;
 
     @OneToMany(targetEntity = Commit.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "username", insertable=false, updatable=false)

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "BOOK")
 public class Book {
 
     @Id
@@ -16,8 +15,8 @@ public class Book {
     @Column(name = "title", nullable = false, length = 100)
     private String title;
 
-    @Column(name = "isbn", nullable = false, length = 13)
-    private String isbn;
+//    @Column(name = "isbn", nullable = false, length = 13)
+//    private String isbn;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -26,15 +25,17 @@ public class Book {
             inverseJoinColumns={@JoinColumn(name="author_id", referencedColumnName="id")})
     private List<Author> authors = new ArrayList<>();
 
+    public Book(String title) {
+        this.title = title;
+    }
+
     public String getAuthorsString() {
-        if (authors == null || authors.size() == 0) {
+        if (authors.isEmpty()) {
             return "";
         }
         StringBuilder authorsString = new StringBuilder();
-        for (int i = 0; i < authors.size() - 1; i++) {
-            authorsString.append(authors.get(i).getName() + ", ");
-        }
-        authorsString.append(authors.get(authors.size() - 1).getName());
+        authors.forEach(author -> authorsString.append(author.getName() + ", "));
+        authorsString.delete(authorsString.lastIndexOf(", "), authorsString.length());
         return authorsString.toString();
     }
 
@@ -54,13 +55,13 @@ public class Book {
         this.title = title;
     }
 
-    public String getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+//    public String getIsbn() {
+//        return isbn;
+//    }
+//
+//    public void setIsbn(String isbn) {
+//        this.isbn = isbn;
+//    }
 
     public List<Author> getAuthors() {
         return authors;

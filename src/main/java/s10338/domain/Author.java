@@ -3,14 +3,13 @@ package s10338.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "AUTHOR")
 public class Author {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(name = "name", nullable = false)
     private String name;
 
     public Author(String name) {
