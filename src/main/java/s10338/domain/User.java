@@ -6,7 +6,10 @@ import java.util.List;
 @Entity
 public class User {
     @Id
-    @Column(unique = true)
+    @GeneratedValue
+    private long id;
+
+    @Column(nullable = false)
     private String email;
 
     @Column(nullable = false)
@@ -15,9 +18,15 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(targetEntity = Commit.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Lending.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "username", insertable=false, updatable=false)
-    public List<Commit> commits;
+    public List<Lending> lendings;
+
+    public User(String email, String name, String password) {
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
 
     public String getName() {
         return name;
@@ -43,11 +52,11 @@ public class User {
         this.email = email;
     }
 
-    public List<Commit> getCommits() {
-        return commits;
+    public List<Lending> getLendings() {
+        return lendings;
     }
 
-    public void setCommits(List<Commit> commits) {
-        this.commits = commits;
+    public void setLendings(List<Lending> libraries) {
+        this.lendings = libraries;
     }
 }

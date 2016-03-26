@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import s10338.domain.Book;
-import s10338.domain.Commit;
+import s10338.domain.Lending;
 import s10338.domain.User;
 import s10338.domain.repository.AuthorReository;
 import s10338.domain.repository.BookRepository;
@@ -53,16 +53,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public List<Commit> getUserCommits(String username) {
+    public List<Lending> getUserCommits(String username) {
         return userRepository.getUserCommits(username);
     }
 
     @Override
     @Transactional
-    public void commitBook(String username, Book book, Commit commit) {
+    public void commitBook(String username, Book book, Lending lending) {
         int bookId = bookRepository.addBook(book);
-        commit.setCommitKey(new Commit.CommitKey(username, bookId));
-        commit.setDate(Date.valueOf(LocalDate.now()));
-        userRepository.addBook(commit);
+        //TODO-rwichrowski poprawić
+        lending.setId(lending.getId());
+        lending.setDate(Date.valueOf(LocalDate.now()));
+        userRepository.addBook(lending);
     }
 }

@@ -2,6 +2,8 @@ package s10338.sandbox;
 
 import s10338.domain.Author;
 import s10338.domain.Book;
+import s10338.domain.Lending;
+import s10338.domain.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -50,24 +52,23 @@ public class Main {
             books.add(createBook("Stara baśń"));
             books.add(createBook("Bartek Zwycięzca"));
 
+            List<User> users = new ArrayList<>();
+            users.add(new User("radek@gmail.com", "radek", "radek"));
+
+            Lending lending = new Lending();
+            lending.setBook(books.get(2));
+            lending.setUser(users.get(0));
 
             entityManager.getTransaction().begin();
             authors.stream().forEach(author -> entityManager.persist(author));
             books.stream().forEach(book -> entityManager.persist(book));
+            users.stream().forEach(user -> entityManager.persist(user));
+            entityManager.persist(lending);
+
             entityManager.getTransaction().commit();
-
-//            entityManager.persist(new Customer("Radek", "Warszawa"));
-//            entityManager.persist(new Customer("Jacek", "Radom"));
-//            entityManager.persist(new Customer("Monika", "Warszawa"));
-//            entityManager.persist(new Customer("Weronika"));
-//            entityManager.persist(new Customer("Oliwia", "Warszawa"));
-//            entityManager.persist(new Customer("Marta"));
-
 
             entityManager.close();
             entityManagerFactory.close();
-
-//            System.out.println("book.getTitle() " + book.getTitle());
 
             System.exit(0);
         } catch (Exception e) {
@@ -87,8 +88,8 @@ public class Main {
 
     public Author getRandomAutor() {
         Random r = new Random();
-        int High = authors.size();
-        return authors.get(r.nextInt(High));
+        int high = authors.size();
+        return authors.get(r.nextInt(high));
     }
 
 }

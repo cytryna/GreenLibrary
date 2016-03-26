@@ -1,7 +1,7 @@
 package s10338.domain.repository.impl;
 
 import org.springframework.stereotype.Repository;
-import s10338.domain.Commit;
+import s10338.domain.Lending;
 import s10338.domain.User;
 import s10338.domain.repository.UserRepository;
 
@@ -38,12 +38,12 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Commit> getUserCommits(String username) {
+    public List<Lending> getUserCommits(String username) {
         try {
             User user = entityManager.find(User.class, username);
-            List<Commit> commits = user.getCommits();
-            commits.size();
-            return commits;
+            List<Lending> libraries = user.getLendings();
+            libraries.size();
+            return libraries;
         } catch (PersistenceException ex) {
             System.out.println(ex.getMessage());
         }
@@ -51,9 +51,9 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void addBook(Commit commit) {
+    public void addBook(Lending lending) {
         try {
-            entityManager.persist(commit);
+            entityManager.persist(lending);
         } catch (PersistenceException ex) {
             System.out.println(ex.getMessage());
         }

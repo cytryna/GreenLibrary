@@ -8,7 +8,6 @@ import java.util.List;
 public class Book {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue
     private int id;
 

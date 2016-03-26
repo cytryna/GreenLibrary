@@ -1,11 +1,11 @@
 package s10338.service;
 
-import s10338.domain.Commit;
+import s10338.domain.Lending;
 
 public interface CommitService {
 
-    public Commit getCommitById(String username, int bookId);
+    public Lending getCommitById(String username, int bookId);
 
-    public void updateCommit(Commit commit);
+    public void updateCommit(Lending lending);
 
 }
