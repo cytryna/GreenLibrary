@@ -1,8 +1,8 @@
-package s10338.domain.dao;
+package s10338.domain.repository;
 
 import s10338.domain.Commit;
 
-public interface CommitDao {
+public interface LibraryRepository {
 
     public Commit getCommitById(String username, int bookId);
 

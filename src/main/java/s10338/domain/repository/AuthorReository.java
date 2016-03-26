@@ -1,10 +1,10 @@
-package s10338.domain.dao;
+package s10338.domain.repository;
 
 import s10338.domain.Author;
 
 import java.util.List;
 
-public interface AuthorDao {
+public interface AuthorReository {
 
     public void addAuthor(Author author);
 

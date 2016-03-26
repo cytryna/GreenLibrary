@@ -1,8 +1,9 @@
-package s10338.domain.dao;
+package s10338.domain.repository.impl;
 
 import org.springframework.stereotype.Repository;
 import s10338.domain.Commit;
 import s10338.domain.User;
+import s10338.domain.repository.UserRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,7 +11,7 @@ import javax.persistence.PersistenceException;
 import java.util.List;
 
 @Repository
-public class JpaUserDao implements UserDao {
+public class UserRepositoryImpl implements UserRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

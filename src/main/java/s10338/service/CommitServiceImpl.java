@@ -3,7 +3,7 @@ package s10338.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import s10338.domain.Commit;
-import s10338.domain.dao.CommitDao;
+import s10338.domain.repository.LibraryRepository;
 
 import javax.transaction.Transactional;
 
@@ -11,17 +11,17 @@ import javax.transaction.Transactional;
 public class CommitServiceImpl implements CommitService {
 
     @Autowired
-    private CommitDao commitDao;
+    private LibraryRepository libraryRepository;
 
     @Override
     @Transactional
     public Commit getCommitById(String username, int bookId) {
-        return commitDao.getCommitById(username, bookId);
+        return libraryRepository.getCommitById(username, bookId);
     }
 
     @Override
     @Transactional
     public void updateCommit(Commit commit) {
-        commitDao.updateCommit(commit);
+        libraryRepository.updateCommit(commit);
     }
 }

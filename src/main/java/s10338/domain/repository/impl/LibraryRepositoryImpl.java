@@ -1,13 +1,14 @@
-package s10338.domain.dao;
+package s10338.domain.repository.impl;
 
 import org.springframework.stereotype.Repository;
 import s10338.domain.Commit;
+import s10338.domain.repository.LibraryRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Repository
-public class JpaCommitDao implements CommitDao {
+public class LibraryRepositoryImpl implements LibraryRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

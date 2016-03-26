@@ -1,15 +1,16 @@
-package s10338.domain.dao;
+package s10338.domain.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
 import s10338.domain.Author;
+import s10338.domain.repository.AuthorReository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class JpaAuthorDao implements AuthorDao {
+public class AuthorReositoryImpl implements AuthorReository {
 
     private static final String GET_BOOK_AUTHORS_QUERY =
             "SELECT AUTHOR.*\n" +

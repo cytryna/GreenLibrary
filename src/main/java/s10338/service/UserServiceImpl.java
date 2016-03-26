@@ -6,10 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import s10338.domain.Book;
 import s10338.domain.Commit;
 import s10338.domain.User;
-import s10338.domain.dao.AuthorDao;
-import s10338.domain.dao.BookDao;
-import s10338.domain.dao.CommitDao;
-import s10338.domain.dao.UserDao;
+import s10338.domain.repository.AuthorReository;
+import s10338.domain.repository.BookRepository;
+import s10338.domain.repository.LibraryRepository;
+import s10338.domain.repository.UserRepository;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -19,13 +19,13 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    UserDao userDao;
+    UserRepository userRepository;
     @Autowired
-    AuthorDao authorDao;
+    AuthorReository authorReository;
     @Autowired
-    BookDao bookDao;
+    BookRepository bookRepository;
     @Autowired
-    CommitDao commitDao;
+    LibraryRepository libraryRepository;
 
     @Override
     @Transactional
@@ -54,15 +54,15 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<Commit> getUserCommits(String username) {
-        return userDao.getUserCommits(username);
+        return userRepository.getUserCommits(username);
     }
 
     @Override
     @Transactional
     public void commitBook(String username, Book book, Commit commit) {
-        int bookId = bookDao.addBook(book);
+        int bookId = bookRepository.addBook(book);
         commit.setCommitKey(new Commit.CommitKey(username, bookId));
         commit.setDate(Date.valueOf(LocalDate.now()));
-        userDao.addBook(commit);
+        userRepository.addBook(commit);
     }
 }

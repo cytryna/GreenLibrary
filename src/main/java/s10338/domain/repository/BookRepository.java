@@ -1,9 +1,9 @@
-package s10338.domain.dao;
+package s10338.domain.repository;
 
 
 import s10338.domain.Book;
 
-public interface BookDao {
+public interface BookRepository {
 
     public int addBook(Book book);
 

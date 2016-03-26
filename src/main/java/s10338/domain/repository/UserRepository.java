@@ -1,11 +1,11 @@
-package s10338.domain.dao;
+package s10338.domain.repository;
 
 import s10338.domain.Commit;
 import s10338.domain.User;
 
 import java.util.List;
 
-public interface UserDao {
+public interface UserRepository {
 
     public void addUser(User user);
 

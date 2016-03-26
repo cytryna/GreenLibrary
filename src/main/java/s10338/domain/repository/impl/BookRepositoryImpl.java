@@ -1,15 +1,16 @@
-package s10338.domain.dao;
+package s10338.domain.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
 import s10338.domain.Book;
+import s10338.domain.repository.BookRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 
 @Repository
-public class JpaBookDao implements BookDao {
+public class BookRepositoryImpl implements BookRepository {
 
     @PersistenceContext
     private EntityManager entityManager;

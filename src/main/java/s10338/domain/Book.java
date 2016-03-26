@@ -9,10 +9,10 @@ public class Book {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private int id;
 
-    @Column(name = "title", nullable = false, length = 100)
+    @Column(name = "title", nullable = false)
     private String title;
 
 //    @Column(name = "isbn", nullable = false, length = 13)
@@ -20,9 +20,9 @@ public class Book {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name="AUTHOR_BOOK",
-            joinColumns={@JoinColumn(name="book_id", referencedColumnName="id")},
-            inverseJoinColumns={@JoinColumn(name="author_id", referencedColumnName="id")})
+            name="author_book",
+            joinColumns={@JoinColumn(name="author_id", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="book_id", referencedColumnName="id")})
     private List<Author> authors = new ArrayList<>();
 
     public Book(String title) {
