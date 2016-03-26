@@ -12,6 +12,9 @@ public class Author {
     @Column(name = "name", nullable = false)
     private String name;
 
+    public Author() {
+    }
+
     public Author(String name) {
         this.name = name;
     }

@@ -3,10 +3,13 @@ package s10338.domain.repository.impl;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
 import s10338.domain.Book;
+import s10338.domain.Customer;
 import s10338.domain.repository.BookRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.util.List;
 
 
 @Repository
@@ -30,6 +33,12 @@ public class BookRepositoryImpl implements BookRepository {
             System.out.println(ex.getMessage());
         }
         return book;
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        Query query = entityManager.createQuery("SELECT e FROM Book e");
+        return (List<Book>) query.getResultList();
     }
 
     @Override

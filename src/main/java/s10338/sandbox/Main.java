@@ -1,9 +1,6 @@
 package s10338.sandbox;
 
-import s10338.domain.Author;
-import s10338.domain.Book;
-import s10338.domain.Lending;
-import s10338.domain.User;
+import s10338.domain.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -58,6 +55,7 @@ public class Main {
             Lending lending = new Lending();
             lending.setBook(books.get(2));
             lending.setUser(users.get(0));
+            lending.setTransaction(Transaction.RESERVATION);
 
             entityManager.getTransaction().begin();
             authors.stream().forEach(author -> entityManager.persist(author));

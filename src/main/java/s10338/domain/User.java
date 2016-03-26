@@ -22,6 +22,9 @@ public class User {
     @JoinColumn(name = "username", insertable=false, updatable=false)
     public List<Lending> lendings;
 
+    public User() {
+    }
+
     public User(String email, String name, String password) {
         this.email = email;
         this.name = name;

@@ -6,6 +6,8 @@ import org.springframework.transaction.annotation.Transactional;
 import s10338.domain.Book;
 import s10338.domain.repository.BookRepository;
 
+import java.util.List;
+
 /**
  * Created by max on 04.02.15.
  */
@@ -29,6 +31,11 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public Book getBookById(int bookId) {
         return bookRepository.getBookById(bookId);
+    }
+
+    @Override
+    public List<Book> getAllBooks() {
+        return bookRepository.getAllBooks();
     }
 
     @Override

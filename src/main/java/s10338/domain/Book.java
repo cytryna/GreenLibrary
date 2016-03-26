@@ -24,6 +24,9 @@ public class Book {
             inverseJoinColumns={@JoinColumn(name="book_id", referencedColumnName="id")})
     private List<Author> authors = new ArrayList<>();
 
+    public Book() {
+    }
+
     public Book(String title) {
         this.title = title;
     }
