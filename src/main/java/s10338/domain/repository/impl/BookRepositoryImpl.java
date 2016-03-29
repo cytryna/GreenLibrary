@@ -51,4 +51,9 @@ public class BookRepositoryImpl implements BookRepository {
 
     }
 
+    @Override
+    public Book getBookByTitle(String title) {
+        return null;
+    }
+
 }

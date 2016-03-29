@@ -11,6 +11,8 @@ public interface BookService {
 
     public Book getBookById(int bookId);
 
+    public Book getBookByTitle(String title);
+
     public List<Book> getAllBooks();
 
     public void updateBook(Book book);
