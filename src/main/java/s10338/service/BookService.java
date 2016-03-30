@@ -1,21 +1,21 @@
 package s10338.service;
 
 
-import s10338.domain.Book;
+import s10338.domain.BookItem;
 
 import java.util.List;
 
 public interface BookService {
 
-    int addBook(Book book);
+    int addBook(BookItem book);
 
-    Book getBookById(int bookId);
+    BookItem getBookById(int bookId);
 
-    List<Book> getBookByTitle(String title);
+    List<BookItem> getBookByTitle(String title);
 
-    List<Book> getAllBooks();
+    List<BookItem> getAllBooks();
 
-    void updateBook(Book book);
+    void updateBook(BookItem book);
 
     void removeBook(int bookId);
 

@@ -2,7 +2,7 @@ package s10338.domain.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
-import s10338.domain.Book;
+import s10338.domain.BookItem;
 import s10338.domain.repository.BookRepository;
 
 import javax.persistence.EntityManager;
@@ -18,19 +18,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
-    private List<Book> bookList = new ArrayList<Book>();
+    private List<BookItem> bookList = new ArrayList<BookItem>();
 
     @Override
-    public int addBook(Book book) {
+    public int addBook(BookItem book) {
         entityManager.persist(book);
         return book.getId();
     }
 
     @Override
-    public Book getBookById(int id) {
-        Book book = null;
+    public BookItem getBookById(int id) {
+        BookItem book = null;
         try {
-            book = entityManager.find(Book.class, id);
+            book = entityManager.find(BookItem.class, id);
         } catch (HibernateException ex) {
             System.out.println(ex.getMessage());
         }
@@ -38,20 +38,20 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public List<Book> getAllBooks() {
+    public List<BookItem> getAllBooks() {
         refreshBooks();
         return bookList;
     }
 
     private void refreshBooks() {
         if (bookList == null || bookList.isEmpty()) {
-            Query query = entityManager.createQuery("SELECT e FROM Book e");
+            Query query = entityManager.createQuery("SELECT e FROM BookItem e");
             bookList = query.getResultList();
         }
     }
 
     @Override
-    public void updateBook(Book book) {
+    public void updateBook(BookItem book) {
         entityManager.merge(book);
     }
 
@@ -61,7 +61,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public List<Book> getBookByTitle(String title) {
+    public List<BookItem> getBookByTitle(String title) {
         refreshBooks();
         return bookList.stream()
                 .filter(book -> book.getTitle().contains(title))

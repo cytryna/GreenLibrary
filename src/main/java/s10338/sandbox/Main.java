@@ -33,34 +33,37 @@ public class Main {
             authors.add(new Author("Anna"));
             authors.add(new Author("Leopold"));
 
-            List<Book> books = new ArrayList<>();
-            books.add(createBook("Antygona"));
-            books.add(createBook("Bogurodzica"));
-            books.add(createBook("Lalka"));
-            books.add(createBook("Wesele"));
-            books.add(createBook("W pustyni i w puszczy"));
-            books.add(createBook("Pan Tadeusz"));
-            books.add(createBook("Mały Książę"));
-            books.add(createBook("O psie który jeździł koleją"));
-            books.add(createBook("W 80 dni dookoła świata"));
-            books.add(createBook("Dziady"));
-            books.add(createBook("Nie płacz, Koziołku"));
-            books.add(createBook("Powrót posła"));
-            books.add(createBook("Stara baśń"));
-            books.add(createBook("Bartek Zwycięzca"));
+            List<BookItem> bookItems = new ArrayList<>();
+            bookItems.add(createBook("Antygona"));
+            bookItems.add(createBook("Bogurodzica"));
+            bookItems.add(createBook("Lalka"));
+            bookItems.add(createBook("Wesele"));
+            bookItems.add(createBook("W pustyni i w puszczy"));
+            bookItems.add(createBook("Pan Tadeusz"));
+            bookItems.add(createBook("Mały Książę"));
+            bookItems.add(createBook("O psie który jeździł koleją"));
+            bookItems.add(createBook("W 80 dni dookoła świata"));
+            bookItems.add(createBook("Dziady"));
+            bookItems.add(createBook("Nie płacz, Koziołku"));
+            bookItems.add(createBook("Powrót posła"));
+            bookItems.add(createBook("Stara baśń"));
+            bookItems.add(createBook("Bartek Zwycięzca"));
 
             List<User> users = new ArrayList<>();
             users.add(new User("radek@gmail.com", "radek", "radek"));
 
             Transaction transaction = new Transaction();
-            transaction.setBook(books.get(2));
+            transaction.setBookItem(bookItems.get(2));
             transaction.setUser(users.get(0));
             transaction.setDateFrom(new Date());
             transaction.setTransactionType(TransactionType.RESERVATION);
 
             entityManager.getTransaction().begin();
             authors.stream().forEach(author -> entityManager.persist(author));
-            books.stream().forEach(book -> entityManager.persist(book));
+            bookItems.stream().forEach(bookItem -> {
+                entityManager.persist(bookItem.getBook());
+                entityManager.persist(bookItem);
+            });
             users.stream().forEach(user -> entityManager.persist(user));
             entityManager.persist(transaction);
 
@@ -75,10 +78,11 @@ public class Main {
         }
     }
 
-    private Book createBook(String title) {
+    private BookItem createBook(String title) {
         Book book = new Book(title);
         book.getAuthors().add(getRandomAutor());
-        return book;
+        BookItem bookItem = new BookItem(book);
+        return bookItem;
     }
 
     private static Date stringToDate(String testDate) throws ParseException {
