@@ -52,16 +52,17 @@ public class Main {
             List<User> users = new ArrayList<>();
             users.add(new User("radek@gmail.com", "radek", "radek"));
 
-            Lending lending = new Lending();
-            lending.setBook(books.get(2));
-            lending.setUser(users.get(0));
-            lending.setTransaction(Transaction.RESERVATION);
+            Transaction transaction = new Transaction();
+            transaction.setBook(books.get(2));
+            transaction.setUser(users.get(0));
+            transaction.setDateFrom(new Date());
+            transaction.setTransactionType(TransactionType.RESERVATION);
 
             entityManager.getTransaction().begin();
             authors.stream().forEach(author -> entityManager.persist(author));
             books.stream().forEach(book -> entityManager.persist(book));
             users.stream().forEach(user -> entityManager.persist(user));
-            entityManager.persist(lending);
+            entityManager.persist(transaction);
 
             entityManager.getTransaction().commit();
 

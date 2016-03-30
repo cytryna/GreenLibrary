@@ -22,7 +22,7 @@ public class SearchController {
 
     @RequestMapping("/product")
     public String getProductById(@RequestParam("title") String title, Model model) {
-        model.addAttribute("books", bookService.getBookById());
+        model.addAttribute("books", bookService.getBookByTitle(title));
         return "search";
     }
 

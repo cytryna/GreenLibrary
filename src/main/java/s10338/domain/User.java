@@ -9,7 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue
-    private long id;
+    private int id;
 
     @Column(nullable = false)
     private String email;
@@ -20,9 +20,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(targetEntity = Lending.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Transaction.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id", insertable=false, updatable=false)//// TODO: 29.03.16 Nie jestem pewny czy tu powinno być user_id czy user name i czy w ogole potrzebne to połączenie
-    public List<Lending> lendings;
+    public List<Transaction> transactions;
 
     public User() {
     }
@@ -57,11 +57,11 @@ public class User {
         this.email = email;
     }
 
-    public List<Lending> getLendings() {
-        return lendings;
+    public List<Transaction> getTransactions() {
+        return transactions;
     }
 
-    public void setLendings(List<Lending> libraries) {
-        this.lendings = libraries;
+    public void setTransactions(List<Transaction> libraries) {
+        this.transactions = libraries;
     }
 }

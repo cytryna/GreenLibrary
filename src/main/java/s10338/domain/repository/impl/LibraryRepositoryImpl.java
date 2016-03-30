@@ -1,7 +1,7 @@
 package s10338.domain.repository.impl;
 
 import org.springframework.stereotype.Repository;
-import s10338.domain.Lending;
+import s10338.domain.Transaction;
 import s10338.domain.repository.LibraryRepository;
 
 import javax.persistence.EntityManager;
@@ -14,13 +14,13 @@ public class LibraryRepositoryImpl implements LibraryRepository {
     private EntityManager entityManager;
 
     @Override
-    public Lending getCommitById(String username, int bookId) {
+    public Transaction getCommitById(String username, int bookId) {
         //TODO-rwichrowski poprawić
-        return entityManager.find(Lending.class, bookId);
+        return entityManager.find(Transaction.class, bookId);
     }
 
     @Override
-    public void updateCommit(Lending lending) {
-        entityManager.merge(lending);
+    public void updateCommit(Transaction transaction) {
+        entityManager.merge(transaction);
     }
 }

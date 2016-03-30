@@ -25,6 +25,9 @@ public class Book {
             inverseJoinColumns={@JoinColumn(name="book_id", referencedColumnName="id")})
     private List<Author> authors = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Transaction transaction;
+
     public Book() {
     }
 
