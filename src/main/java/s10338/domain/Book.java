@@ -5,7 +5,6 @@ import java.util.*;
 
 //ogólnie
 @Entity
-@Table(name = "book")
 public class Book {
 
 //    private static Map<String, Book> books = new HashMap<>();
@@ -14,7 +13,6 @@ public class Book {
     @GeneratedValue
     private int id;
 
-    @Column(name = "title")
     private String title;
 
     @OneToMany(fetch = FetchType.EAGER)
@@ -22,9 +20,9 @@ public class Book {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "author_book",
-            joinColumns = {@JoinColumn(name = "author_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "book_id", referencedColumnName = "id")})
+            name = "authorBook",
+            joinColumns = {@JoinColumn(name = "authorId", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "bookId", referencedColumnName = "id")})
     private List<Author> authors = new ArrayList<>();
 
     public Book() {
