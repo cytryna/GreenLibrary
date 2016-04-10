@@ -52,4 +52,8 @@ public class BookItem {
     public List<Author> getAuthors() {
         return book.getAuthors();
     }
+
+    public String getAuthorsString() {
+        return book.getAuthorsString();
+    }
 }
