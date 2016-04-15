@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-default" role="navigation">
-                    <div class="navbar-header">
+                    <%--<div class="navbar-header">
 
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
                                 data-target="#bs-example-navbar-collapse-1">
@@ -31,10 +31,10 @@
                                 class="icon-bar"></span><span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">Brand</a>
-                    </div>
+                    </div>--%>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
+                       <%--<ul class="nav navbar-nav">
                             <li class="active">
                                 <a href="#">Link</a>
                             </li>
@@ -66,8 +66,9 @@
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
-                        <form class="navbar-form navbar-left" role="search">
+                        </ul>--%>
+                        <form class="navbar-form navbar-left" role="search" method="post">
+                            Tytuł
                             <div class="form-group">
                                 <input type="text" class="form-control"/>
                             </div>
@@ -75,7 +76,7 @@
                                 Submit
                             </button>
                         </form>
-                        <ul class="nav navbar-nav navbar-right">
+                       <%-- <ul class="nav navbar-nav navbar-right">
                             <li>
                                 <a href="#">Link</a>
                             </li>
@@ -99,7 +100,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        </ul>
+                        </ul>--%>
                     </div>
 
                 </nav>
@@ -135,7 +136,10 @@
                                         01/04/2012
                                     </td>
                                     <td>
-                                        Przycisk do rezerwacji lub komunikat o niedostępności
+
+                                        <a href=" <spring:url value="/search/book?id=${c.id}"/> " class="btn btn-primary"> Wybierz
+                                        </a>
+
                                     </td>
                                 </tr>
                             </c:forEach>

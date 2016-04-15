@@ -10,6 +10,10 @@ import s10338.service.BookService;
 @Controller
 public class SearchController {
 
+
+    // TODO: 15.04.16 zminic nazwę na booksControler
+    //dodać metody do search
+    //book (która wyświetlała książkę z możliwością jej rezerwacji itp
     @Autowired
     private BookService bookService;
 
