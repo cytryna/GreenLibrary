@@ -67,13 +67,13 @@
                                 </ul>
                             </li>
                         </ul>--%>
-                        <form class="navbar-form navbar-left" role="search" method="post">
+                        <form class="navbar-form navbar-left" role="search" method="get">
                             Tytuł
                             <div class="form-group">
                                 <input type="text" class="form-control"/>
                             </div>
                             <button type="submit" class="btn btn-default">
-                                Submit
+                                Szukaj
                             </button>
                         </form>
                        <%-- <ul class="nav navbar-nav navbar-right">

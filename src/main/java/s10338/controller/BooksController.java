@@ -15,10 +15,16 @@ public class BooksController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/search")
+    @RequestMapping("/all")
     public String welcome(Model model) {
-//        bookService.getAllCustomers().forEach(customer -> System.out.println(customer.getName()));
         model.addAttribute("books", bookService.getAllBooks());
+        return "search";
+    }
+
+    @RequestMapping("/search")
+    public String getProductByTitle(@RequestParam("title") String bookTitle, Model model) {
+        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+//        bookService.getAllCustomers().forEach(customer -> System.out.println(customer.getName()));
         return "search";
     }
 
