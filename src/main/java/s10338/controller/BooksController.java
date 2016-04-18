@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import s10338.service.BookService;
 
 @Controller
-public class SearchController {
+@RequestMapping("/books")
+public class BooksController {
 
 
-    // TODO: 15.04.16 zminic nazwę na booksControler
-    //dodać metody do search
-    //book (która wyświetlała książkę z możliwością jej rezerwacji itp
     @Autowired
     private BookService bookService;
 
@@ -24,11 +22,10 @@ public class SearchController {
         return "search";
     }
 
-    @RequestMapping("/product")
-    public String getProductById(@RequestParam("title") String title, Model model) {
-        model.addAttribute("books", bookService.getBookByTitle(title));
-        return "search";
+    @RequestMapping("/book")
+    public String getProductById(@RequestParam("id") int bookId, Model model) {
+        model.addAttribute("book", bookService.getBookById(bookId));
+        return "book";
     }
-
 
 }
