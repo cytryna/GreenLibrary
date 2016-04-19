@@ -21,16 +21,17 @@ public class BooksController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping("/all")
-    public String welcome(Model model) {
+
+    @RequestMapping
+    public String getAllBooks(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
-        return "search";
+        return "redirect:/books";
     }
 
-    @RequestMapping(value="/search", method = RequestMethod.GET)
-    public String getProductByTitle(@RequestParam("title") String bookTitle, Model model) {
+    @RequestMapping(method = RequestMethod.GET)
+    public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
         model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-        return "search";
+        return "books";
     }
 
     @RequestMapping("/book")
