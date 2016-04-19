@@ -70,7 +70,7 @@
                         <form class="navbar-form navbar-left" role="search" method="get">
                             Tytuł
                             <div class="form-group">
-                                <input type="text" class="form-control"/>
+                                <input type="text" class="form-control" name="title"/>
                             </div>
                             <button type="submit" class="btn btn-default">
                                 Szukaj
