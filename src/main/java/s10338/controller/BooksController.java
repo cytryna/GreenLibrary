@@ -34,6 +34,13 @@ public class BooksController {
         return "books";
     }
 
+//    @RequestMapping("/{title}")
+//    public String listByCategory(Model model, @PathVariable("title") String bookTitle) {
+//        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+//        return "products";
+//    }
+
+
 //    @RequestMapping("/book")
 //    public String getProductById(@RequestParam("id") int bookId, Model model) {
 //        model.addAttribute("book", bookService.getBookById(bookId));
