@@ -3,7 +3,7 @@ package s10338.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import s10338.domain.BookItem;
+import s10338.domain.Book;
 import s10338.domain.repository.BookRepository;
 
 import java.util.List;
@@ -23,29 +23,29 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public int addBook(BookItem book) {
+    public int addBook(Book book) {
         return bookRepository.addBook(book);
     }
 
     @Override
     @Transactional
-    public BookItem getBookById(int bookId) {
+    public Book getBookById(int bookId) {
         return bookRepository.getBookById(bookId);
     }
 
     @Override
-    public List<BookItem> getBookByTitle(String title) {
+    public List<Book> getBookByTitle(String title) {
         return bookRepository.getBookByTitle(title);
     }
 
     @Override
-    public List<BookItem> getAllBooks() {
+    public List<Book> getAllBooks() {
         return bookRepository.getAllBooks();
     }
 
     @Override
     @Transactional
-    public void updateBook(BookItem book) {
+    public void updateBook(Book book) {
         bookRepository.updateBook(book);
     }
 

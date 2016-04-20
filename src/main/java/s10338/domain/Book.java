@@ -15,9 +15,6 @@ public class Book {
 
     private String title;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<BookItem> books;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "authorBook",
@@ -61,19 +58,15 @@ public class Book {
         this.title = title;
     }
 
-    public List<BookItem> getBooks() {
-        return books;
-    }
-
-    public void setBooks(List<BookItem> books) {
-        this.books = books;
-    }
-
     public List<Author> getAuthors() {
         return authors;
     }
 
     public void setAuthors(List<Author> authors) {
         this.authors = authors;
+    }
+
+    public int getId() {
+        return id;
     }
 }

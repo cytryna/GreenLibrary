@@ -2,7 +2,7 @@ package s10338.domain.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
-import s10338.domain.BookItem;
+import s10338.domain.Book;
 import s10338.domain.repository.BookRepository;
 
 import javax.persistence.EntityManager;
@@ -18,19 +18,19 @@ public class BookRepositoryImpl implements BookRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
-    private List<BookItem> bookList = new ArrayList<BookItem>();
+    private List<Book> bookList = new ArrayList<Book>();
 
     @Override
-    public int addBook(BookItem book) {
+    public int addBook(Book book) {
         entityManager.persist(book);
         return book.getId();
     }
 
     @Override
-    public BookItem getBookById(int id) {
-        BookItem book = null;
+    public Book getBookById(int id) {
+        Book book = null;
         try {
-            book = entityManager.find(BookItem.class, id);
+            book = entityManager.find(Book.class, id);
         } catch (HibernateException ex) {
             System.out.println(ex.getMessage());
         }
@@ -38,14 +38,14 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public List<BookItem> getAllBooks() {
+    public List<Book> getAllBooks() {
         refreshBooks();
         return bookList;
     }
 
     private void refreshBooks() {
         if (bookList == null || bookList.isEmpty()) {
-            Query query = entityManager.createQuery("SELECT e FROM BookItem e");
+            Query query = entityManager.createQuery("SELECT e FROM Book e");
 //            SELECT book_item.id , book.title, transaction.dateFrom FROM book_item
 //            inner join book on book_item.book_id = book.id
 //            left outer join transaction on transaction.book_item_id = book_item.id
@@ -55,7 +55,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public void updateBook(BookItem book) {
+    public void updateBook(Book book) {
         entityManager.merge(book);
     }
 
@@ -65,7 +65,7 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public List<BookItem> getBookByTitle(String title) {
+    public List<Book> getBookByTitle(String title) {
         refreshBooks();
         return bookList.stream()
                 .filter(book -> book.getTitle().contains(title))

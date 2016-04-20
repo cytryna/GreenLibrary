@@ -1,21 +1,21 @@
 package s10338.domain.repository;
 
 
-import s10338.domain.BookItem;
+import s10338.domain.Book;
 
 import java.util.List;
 
 public interface BookRepository {
 
-    int addBook(BookItem book);
+    int addBook(Book book);
 
-    BookItem getBookById(int bookId);
+    Book getBookById(int bookId);
 
-    List<BookItem> getAllBooks();
+    List<Book> getAllBooks();
 
-    void updateBook(BookItem book);
+    void updateBook(Book book);
 
     void removeBook(int bookId);
 
-    List<BookItem> getBookByTitle(String title);
+    List<Book> getBookByTitle(String title);
 }

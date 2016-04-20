@@ -16,8 +16,8 @@ public class Transaction {
     private Date dateTo;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "book_item_id")
-    private BookItem bookItem;
+    @JoinColumn(name = "book_id")
+    private Book book;
 
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -29,7 +29,7 @@ public class Transaction {
     public Transaction() {
     }
 
-    public Transaction(Date dateFrom, BookItem bookItem, User user, TransactionType transactionType) {
+    public Transaction(Date dateFrom, Book book, User user, TransactionType transactionType) {
         this.dateFrom = dateFrom;
     }
 
@@ -50,12 +50,12 @@ public class Transaction {
         this.dateFrom = date;
     }
 
-    public BookItem getBookItem() {
-        return bookItem;
+    public Book getBook() {
+        return book;
     }
 
-    public void setBookItem(BookItem bookItem) {
-        this.bookItem = bookItem;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public User getUser() {
