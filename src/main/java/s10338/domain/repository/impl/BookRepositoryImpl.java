@@ -38,6 +38,17 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
+    public Book getConcreteBookByTitle(String title) {
+        Book book = null;
+        try {
+            book = entityManager.find(Book.class, title);
+        } catch (HibernateException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return book;
+    }
+
+    @Override
     public List<Book> getAllBooks() {
         refreshBooks();
         return bookList;

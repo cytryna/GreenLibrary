@@ -7,15 +7,15 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <!--<class>BookItem</class>-->
     <class>s10338.domain.Customer</class>
-    <!--<jta-data-source>java:jboss/datasources/jbossas7development</jta-data-source>-->
-    <!--<jta-data-source>java:jboss/datasources/mydatasource</jta-data-source>-->
-    <properties>
-        <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-        <property name="javax.persistence.jdbc.user" value="radek"/>
-        <property name="javax.persistence.jdbc.password" value="radek"/>
-        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/booklibrary" />
-        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-        <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+        <!--<jta-data-source>java:jboss/datasources/jbossas7development</jta-data-source>-->
+        <!--<jta-data-source>java:jboss/datasources/mydatasource</jta-data-source>-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="radek"/>
+            <property name="javax.persistence.jdbc.password" value="radek"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/booklibrary" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
     </properties>
 </persistence-unit>
 </persistence>

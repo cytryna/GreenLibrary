@@ -3,15 +3,8 @@ package s10338.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import s10338.domain.Product;
 import s10338.service.BookService;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 
 @Controller
 @RequestMapping("/books")
@@ -30,16 +23,19 @@ public class BooksController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
-        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+        model.addAttribute("books", bookService.getBooksLikeTitle(bookTitle));
         return "books";
     }
 
-//    @RequestMapping("/{title}")
-//    public String listByCategory(Model model, @PathVariable("title") String bookTitle) {
-//        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-//        return "books";
-////        return "redirect:/books";
-//    }
+
+    //TODO-rwichrowski zmienić na tytuł
+    @RequestMapping("/{id}")
+    public String listByCategory(Model model, @PathVariable("id") int bookId) {
+        model.addAttribute("book", bookService.getBookById(bookId));
+//        model.addAttribute("books", bookService.getConcreteBookByTitle(bookTitle));
+        return "book";
+//        return "redirect:/books";
+    }
 
 
     @RequestMapping("/bookid")
@@ -49,10 +45,10 @@ public class BooksController {
     }
 
 
-    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public String reservation(@RequestParam("id") String bookTitle, Model model) {
-        model.addAttribute("books", bookService.);
-        return "reservation";
-    }
+//    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
+//    public String reservation(@RequestParam("id") String bookTitle, Model model) {
+//        model.addAttribute("books", bookService.);
+//        return "reservation";
+//    }
 
 }

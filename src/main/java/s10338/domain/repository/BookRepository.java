@@ -11,6 +11,8 @@ public interface BookRepository {
 
     Book getBookById(int bookId);
 
+    Book getConcreteBookByTitle(String title);
+
     List<Book> getAllBooks();
 
     void updateBook(Book book);
@@ -18,4 +20,5 @@ public interface BookRepository {
     void removeBook(int bookId);
 
     List<Book> getBookByTitle(String title);
+
 }

@@ -36,7 +36,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> getBookByTitle(String title) {
+    public Book getConcreteBookByTitle(String title) {
+        return bookRepository.getConcreteBookByTitle(title);
+    }
+
+    @Override
+    public List<Book> getBooksLikeTitle(String title) {
         return bookRepository.getBookByTitle(title);
     }
 
@@ -51,13 +56,13 @@ public class BookServiceImpl implements BookService {
         bookRepository.updateBook(book);
     }
 
-    @Override
-    @Transactional
-    public void reservationBook(Book book) {
-        Transaction transaction = new Transaction(new Date(), book);
-
-        bookRepository.updateBook(book);
-    }
+//    @Override
+//    @Transactional
+//    public void reservationBook(Book book) {
+//        Transaction transaction = new Transaction(new Date(), book);
+//
+//        bookRepository.updateBook(book);
+//    }
 
     @Override
     @Transactional
