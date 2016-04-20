@@ -5,6 +5,7 @@ import java.util.*;
 
 //ogólnie
 @Entity
+@Table(name = "book")
 public class Book {
 
 //    private static Map<String, Book> books = new HashMap<>();
