@@ -28,11 +28,11 @@ public class BooksController {
         return "books";
     }
 
-    @RequestMapping(value = "/book", method = RequestMethod.GET)
-    public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
-        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-        return "books";
-    }
+//    @RequestMapping(value = "/book", method = RequestMethod.GET)
+//    public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
+//        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+//        return "books";
+//    }
 
 //    @RequestMapping("/{title}")
 //    public String listByCategory(Model model, @PathVariable("title") String bookTitle) {
@@ -41,10 +41,17 @@ public class BooksController {
 //    }
 
 
-//    @RequestMapping("/book")
-//    public String getProductById(@RequestParam("id") int bookId, Model model) {
-//        model.addAttribute("book", bookService.getBookById(bookId));
-//        return "book";
-//    }
+    @RequestMapping("/bookid")
+    public String getProductById(@RequestParam("id") int bookId, Model model) {
+        model.addAttribute("book", bookService.getBookById(bookId));
+        return "book";
+    }
+
+
+    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
+    public String reservation(@RequestParam("id") String bookTitle, Model model) {
+        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+        return "books";
+    }
 
 }

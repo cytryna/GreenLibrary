@@ -138,7 +138,7 @@
                                     </td>
                                     <td>
 
-                                        <a href=" <spring:url value="/books/book?id=${c.id}"/> " class="btn btn-primary"> Wybierz
+                                        <a href=" <spring:url value="/books/bookid?id=${c.id}"/> " class="btn btn-primary"> Wybierz
                                         </a>
 
                                     </td>
