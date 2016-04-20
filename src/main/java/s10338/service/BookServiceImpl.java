@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import s10338.domain.Book;
+import s10338.domain.Transaction;
 import s10338.domain.repository.BookRepository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,6 +48,14 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public void updateBook(Book book) {
+        bookRepository.updateBook(book);
+    }
+
+    @Override
+    @Transactional
+    public void reservationBook(Book book) {
+        Transaction transaction = new Transaction(new Date(), book);
+
         bookRepository.updateBook(book);
     }
 

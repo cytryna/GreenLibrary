@@ -37,7 +37,8 @@ public class BooksController {
 //    @RequestMapping("/{title}")
 //    public String listByCategory(Model model, @PathVariable("title") String bookTitle) {
 //        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-//        return "products";
+//        return "books";
+////        return "redirect:/books";
 //    }
 
 
@@ -50,8 +51,8 @@ public class BooksController {
 
     @RequestMapping(value = "/reservation", method = RequestMethod.GET)
     public String reservation(@RequestParam("id") String bookTitle, Model model) {
-        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-        return "books";
+        model.addAttribute("books", bookService.);
+        return "reservation";
     }
 
 }
