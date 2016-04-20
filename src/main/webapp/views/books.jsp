@@ -68,7 +68,7 @@
                             </li>
                         </ul>--%>
                         <%--<form action="<spring:url value="/books/${title}"/>" class="navbar-form navbar-left" role="search" method="POST">--%>
-                        <form action="<c:url value="/books/${title}" />" class="navbar-form navbar-left" role="search">
+                        <form action="<c:url value="/books${title}" />" class="navbar-form navbar-left" role="search">
                             Tytuł
                             <div class="form-group">
                                 <input type="text" class="form-control" name="title"/>

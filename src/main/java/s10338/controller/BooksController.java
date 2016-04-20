@@ -28,11 +28,11 @@ public class BooksController {
         return "books";
     }
 
-//    @RequestMapping(value = "/book", method = RequestMethod.GET)
-//    public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
-//        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
-//        return "books";
-//    }
+    @RequestMapping(method = RequestMethod.GET)
+    public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
+        model.addAttribute("books", bookService.getBookByTitle(bookTitle));
+        return "books";
+    }
 
 //    @RequestMapping("/{title}")
 //    public String listByCategory(Model model, @PathVariable("title") String bookTitle) {
