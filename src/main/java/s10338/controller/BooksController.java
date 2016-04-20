@@ -22,22 +22,22 @@ public class BooksController {
     private BookService bookService;
 
 
-    @RequestMapping
+    @RequestMapping(value = "/all")
     public String getAllBooks(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
-        return "redirect:/books";
+        return "books";
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/book", method = RequestMethod.GET)
     public String getBookByTitle(@RequestParam("title") String bookTitle, Model model) {
         model.addAttribute("books", bookService.getBookByTitle(bookTitle));
         return "books";
     }
 
-    @RequestMapping("/book")
-    public String getProductById(@RequestParam("id") int bookId, Model model) {
-        model.addAttribute("book", bookService.getBookById(bookId));
-        return "book";
-    }
+//    @RequestMapping("/book")
+//    public String getProductById(@RequestParam("id") int bookId, Model model) {
+//        model.addAttribute("book", bookService.getBookById(bookId));
+//        return "book";
+//    }
 
 }
