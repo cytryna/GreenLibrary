@@ -46,8 +46,8 @@ public class BooksController {
 
 
     @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public String reservation(@RequestParam("id") int id, Model model) {
-//        bookService.
+    public String reservation(@RequestParam("id") int bookId,@RequestParam("userid") int userId, Model model) {
+        bookService.reservation(bookId, userId);
         model.addAttribute("books", bookService.getAllBooks());
         return "reservation";
     }

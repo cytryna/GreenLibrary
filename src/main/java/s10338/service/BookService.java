@@ -21,4 +21,5 @@ public interface BookService {
 
     void removeBook(int bookId);
 
+    void reservation(int bookId, int userId);
 }

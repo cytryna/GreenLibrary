@@ -19,4 +19,5 @@ public interface UserRepository {
 
     public void addBook(Transaction transaction);
 
+    User getUserById(int userId);
 }

@@ -8,7 +8,7 @@ import java.util.*;
 @Table(name = "book")
 public class Book {
 
-//    private static Map<String, Book> books = new HashMap<>();
+    //    private static Map<String, Book> books = new HashMap<>();
 //TODO-rwichrowski dodać isbn
     @Id
     @GeneratedValue
@@ -23,8 +23,8 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "bookId", referencedColumnName = "id")})
     private List<Author> authors = new ArrayList<>();
 
-    @OneToMany(targetEntity = Transaction.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book_id", insertable=false, updatable=false)
+    @OneToMany(targetEntity = Transaction.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", insertable = false, updatable = false)
     private List<Transaction> transaction;
 
     public Book() {
@@ -76,6 +76,9 @@ public class Book {
     }
 
     public List<Transaction> getTransaction() {
+        if (transaction == null || transaction.isEmpty()) {
+            transaction = new ArrayList<>();
+        }
         return transaction;
     }
 

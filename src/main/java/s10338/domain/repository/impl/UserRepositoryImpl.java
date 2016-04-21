@@ -58,4 +58,9 @@ public class UserRepositoryImpl implements UserRepository {
             System.out.println(ex.getMessage());
         }
     }
+
+    @Override
+    public User getUserById(int userId) {
+        return null;
+    }
 }

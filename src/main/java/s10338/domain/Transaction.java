@@ -32,6 +32,9 @@ public class Transaction {
 
     public Transaction(Date dateFrom, Book book, User user, TransactionType transactionType) {
         this.dateFrom = dateFrom;
+        this.book = book;
+        this.user = user;
+        this.transactionType = transactionType;
     }
 
     public int getId() {
