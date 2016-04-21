@@ -45,10 +45,11 @@ public class BooksController {
     }
 
 
-//    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-//    public String reservation(@RequestParam("id") String bookTitle, Model model) {
-//        model.addAttribute("books", bookService.);
-//        return "reservation";
-//    }
+    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
+    public String reservation(@RequestParam("id") int id, Model model) {
+//        bookService.
+        model.addAttribute("books", bookService.getAllBooks());
+        return "reservation";
+    }
 
 }

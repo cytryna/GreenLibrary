@@ -15,7 +15,7 @@ public class Transaction {
     private Date dateFrom;
     private Date dateTo;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id")
     private Book book;
 
@@ -24,6 +24,7 @@ public class Transaction {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Enumerated(EnumType.STRING)
     private TransactionType transactionType;
 
     public Transaction() {

@@ -23,6 +23,10 @@ public class Book {
             inverseJoinColumns = {@JoinColumn(name = "bookId", referencedColumnName = "id")})
     private List<Author> authors = new ArrayList<>();
 
+    @OneToMany(targetEntity = Transaction.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "book_id", insertable=false, updatable=false)
+    private List<Transaction> transaction;
+
     public Book() {
     }
 
@@ -69,5 +73,13 @@ public class Book {
 
     public int getId() {
         return id;
+    }
+
+    public List<Transaction> getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(List<Transaction> transaction) {
+        this.transaction = transaction;
     }
 }
