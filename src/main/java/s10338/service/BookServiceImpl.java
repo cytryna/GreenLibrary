@@ -68,8 +68,9 @@ public class BookServiceImpl implements BookService {
     public void reservation(int bookId, int userId) {
         Book bookById = bookRepository.getBookById(bookId);
         User user = userRepository.getUserById(userId);
+
         Transaction transaction = new Transaction(new Date(), bookById, user, TransactionType.RESERVATION);
         bookById.getTransaction().add(transaction);
-        bookRepository.updateBook(bookById);
+//        bookRepository.updateBook(bookById);
     }
 }
