@@ -1,6 +1,8 @@
 package s10338.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +49,9 @@ public class BooksController {
 
     @RequestMapping(value = "/reservation", method = RequestMethod.GET)
     public String reservation(@RequestParam("id") int bookId,@RequestParam("userid") int userId, Model model) {
-        bookService.reservation(bookId, userId);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        bookService.reservation(bookId, auth.getName());
+
         model.addAttribute("books", bookService.getAllBooks());
         return "reservation";
     }
