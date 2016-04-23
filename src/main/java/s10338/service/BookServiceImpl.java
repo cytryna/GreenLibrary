@@ -55,7 +55,7 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public void updateBook(Book book) {
-        bookRepository.updateBook(book);
+        bookRepository.updateTransaction(book);
     }
 
     @Override
@@ -71,6 +71,6 @@ public class BookServiceImpl implements BookService {
 
         Transaction transaction = new Transaction(new Date(), bookById, user, TransactionType.RESERVATION);
         bookById.getTransaction().add(transaction);
-//        bookRepository.updateBook(bookById);
+        bookRepository.updateTransaction(bookById);
     }
 }

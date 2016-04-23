@@ -15,7 +15,7 @@ public interface BookRepository {
 
     List<Book> getAllBooks();
 
-    void updateBook(Book book);
+    void updateTransaction(Book book);
 
     void removeBook(int bookId);
 

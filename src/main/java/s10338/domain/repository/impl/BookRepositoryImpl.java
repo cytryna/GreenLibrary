@@ -66,11 +66,10 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public void updateBook(Book book) {
-//        entityManager.persist(book.getTransaction().get(0));
-
-//        trzeba zaktualizować tranczakację na bazie danych
-//        entityManager.merge(book);
+    public void updateTransaction(Book book) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(book.getTransaction().get(0));
+        entityManager.getTransaction().commit();
     }
 
     @Override
