@@ -2,6 +2,7 @@ package s10338.domain.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import s10338.domain.Book;
 import s10338.domain.repository.BookRepository;
 
@@ -67,9 +68,9 @@ public class BookRepositoryImpl implements BookRepository {
 
     @Override
     public void updateTransaction(Book book) {
-        entityManager.getTransaction().begin();
+
         entityManager.persist(book.getTransaction().get(0));
-        entityManager.getTransaction().commit();
+
     }
 
     @Override
