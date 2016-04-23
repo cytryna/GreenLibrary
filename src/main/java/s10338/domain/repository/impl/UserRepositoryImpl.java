@@ -62,5 +62,6 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User getUserById(int userId) {
         return null;
+        dokończyć
     }
 }

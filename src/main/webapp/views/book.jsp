@@ -26,7 +26,7 @@
 				<%--</p>--%>
 				<%--<h4>${book.unitPrice} PLN</h4>--%>
 				<p>
-					<a href="<spring:url value="/books/reservation?id=${book.id}&userid=1" />" class="btn btn-warning btn-large"> <span
+					<a href="<spring:url value="/books/reservation?id=${book.id}&userid=${book.id}" />" class="btn btn-warning btn-large"> <span
 						class="glyphicon-shopping-cart glyphicon"></span> Zarezerwuj
 					</a>
 					<a href="<spring:url value="/books/all" />" class="btn btn-default">
