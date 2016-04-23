@@ -38,5 +38,8 @@
                             <!--FROM USER-->
                             <!--WHERE USER.name = ?"/>-->
         <!--</security:authentication-provider>-->
+        <!--<security:authentication-provider>
+           custom detail servise
+        </security:authentication-provider>-->
     </security:authentication-manager>
 </beans>
