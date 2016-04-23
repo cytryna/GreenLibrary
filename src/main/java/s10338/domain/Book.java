@@ -82,7 +82,40 @@ public class Book {
         return transaction;
     }
 
+    //TODO-rwichrowski zminić na dostępną książkę
+    private boolean isReserved() {
+        if (!transaction.isEmpty()) {
+            if (getLastTransaction().getDateTo() == null || getLastTransaction().getDateTo().after(new Date())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private Transaction getLastTransaction() {
+        return transaction.get(transaction.size()-1);
+    }
+
+
+    public String getReserved() {
+        if (isReserved()) {
+            return "Zarezerwowana";
+        }
+        return "Dostępna";
+    }
+
     public void setTransaction(List<Transaction> transaction) {
         this.transaction = transaction;
+    }
+
+    @Override
+    public String toString() {
+        String ret = getTitle();
+        if (!getTransaction().isEmpty()) {
+            for (Transaction transaction1 : getTransaction()) {
+                ret = ret + " " + transaction1.getDateFrom();
+            }
+        }
+        return ret;
     }
 }

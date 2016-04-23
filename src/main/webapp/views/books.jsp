@@ -137,7 +137,7 @@
                                         01/04/2012
                                     </td>
                                     <td>
-
+                                            ${c.reserved}
                                         <a href=" <spring:url value="/books/${c.id}"/> " class="btn btn-primary"> Wybierz
                                         </a>
 

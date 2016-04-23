@@ -77,4 +77,12 @@ public class Transaction {
     public void setTransactionType(TransactionType transaction) {
         this.transactionType = transaction;
     }
+
+    public Date getDateTo() {
+        return dateTo;
+    }
+
+    public void setDateTo(Date dateTo) {
+        this.dateTo = dateTo;
+    }
 }
