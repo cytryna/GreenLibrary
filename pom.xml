@@ -49,6 +49,19 @@
             <scope>compile</scope>
         </dependency>
 
+
+        <!--<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>4.0.4.RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>4.0.4.RELEASE</version>
+        </dependency>-->
+
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -113,6 +126,12 @@
             <artifactId>spring-orm</artifactId>
             <version>4.2.5.RELEASE</version>
         </dependency>
+
+        <!--<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>4.1.0.RELEASE</version>
+        </dependency>-->
 
         <!--spring.datasource.url: jdbc:mysql://localhost:3306/booklibrary-->
         <!--spring.datasource.username=radek-->

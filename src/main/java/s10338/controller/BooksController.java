@@ -50,7 +50,7 @@ public class BooksController {
     @RequestMapping(value = "/reservation", method = RequestMethod.GET)
     public String reservation(@RequestParam("id") int bookId,@RequestParam("userid") int userId, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        bookService.reservation(bookId, auth.getName());
+//        bookService.reservation(bookId, auth.getName());
 
         model.addAttribute("books", bookService.getAllBooks());
         return "reservation";

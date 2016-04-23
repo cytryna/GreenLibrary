@@ -11,10 +11,10 @@
 
     <security:http auto-config="true">
         <security:logout logout-url="/j_spring_security_logout"/>
-        <security:intercept-url pattern="/products/add" access="hasRole('ROLE_ADMIN')" />
+        <security:intercept-url pattern="/books/reservation" access="hasRole('ROLE_USER')" />
         <security:form-login login-page="/login"
                              login-processing-url="/j_spring_security_check"
-                             default-target-url="/products/add"
+                             default-target-url="/books/reservation"
                              authentication-failure-url="/loginfailed"/>
         <security:logout logout-success-url="/logout" />
         <security:csrf disabled="true" />
@@ -23,8 +23,20 @@
     <security:authentication-manager>
         <security:authentication-provider>
             <security:user-service>
-                <security:user name="Admin" password="Admin123" authorities="ROLE_ADMIN" />
+                <security:user name="Admin" password="Admin123" authorities="ROLE_USER" />
             </security:user-service>
         </security:authentication-provider>
+        <!--<security:authentication-provider>-->
+            <!--<security:jdbc-user-service-->
+                    <!--data-source-ref="entityManagerFactory"-->
+                    <!--users-by-username-query=-->
+                            <!--"SELECT USER.name AS username, USER.password AS password, TRUE-->
+                            <!--FROM USER-->
+                            <!--WHERE USER.name = ?"-->
+                    <!--authorities-by-username-query=-->
+                            <!--"SELECT USER.name AS username, 'ROLE_USER'-->
+                            <!--FROM USER-->
+                            <!--WHERE USER.name = ?"/>-->
+        <!--</security:authentication-provider>-->
     </security:authentication-manager>
 </beans>
