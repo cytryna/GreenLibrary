@@ -13,6 +13,8 @@
         <security:logout logout-url="/j_spring_security_logout"/>
         <security:intercept-url pattern="/books/reservation" access="hasRole('ROLE_USER')" />
         <security:form-login login-page="/login"
+                             username-parameter="ssoId"
+                             password-parameter="password"
                              login-processing-url="/j_spring_security_check"
                              default-target-url="/books/reservation"
                              authentication-failure-url="/loginfailed"/>
@@ -21,11 +23,11 @@
     </security:http>
 
     <security:authentication-manager>
-        <security:authentication-provider>
+        <!--<security:authentication-provider>
             <security:user-service>
                 <security:user name="Admin" password="Admin123" authorities="ROLE_USER" />
             </security:user-service>
-        </security:authentication-provider>
+        </security:authentication-provider>-->
         <!--<security:authentication-provider>-->
             <!--<security:jdbc-user-service-->
                     <!--data-source-ref="entityManagerFactory"-->
@@ -38,8 +40,10 @@
                             <!--FROM USER-->
                             <!--WHERE USER.name = ?"/>-->
         <!--</security:authentication-provider>-->
-        <!--<security:authentication-provider>
-           custom detail servise
-        </security:authentication-provider>-->
+
+        <security:authentication-provider user-service-ref="customUserDetailsService"/>
+
+
     </security:authentication-manager>
+    <bean id="customUserDetailsService" class="s10338.service.CustomUserDetailsService" />
 </beans>
