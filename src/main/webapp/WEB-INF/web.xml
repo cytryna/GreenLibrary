@@ -28,7 +28,7 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/DispatcherServlet-context.xml</param-value>
+            <param-value>/WEB-INF/security-context.xml</param-value>
         </init-param>
     </servlet>
 
@@ -39,7 +39,7 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/security-context.xml</param-value>
+        <param-value>/WEB-INF/security-context.xml, /WEB-INF/DispatcherServlet-context.xml</param-value>
     </context-param>
 
     <listener>
