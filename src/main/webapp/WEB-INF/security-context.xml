@@ -13,7 +13,7 @@
         <security:logout logout-url="/j_spring_security_logout"/>
         <security:intercept-url pattern="/books/reservation" access="hasRole('ROLE_USER')" />
         <security:form-login login-page="/login"
-                             username-parameter="ssoId"
+                             username-parameter="username"
                              password-parameter="password"
                              login-processing-url="/j_spring_security_check"
                              default-target-url="/books/reservation"

@@ -8,6 +8,7 @@ import s10338.domain.repository.UserRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
@@ -23,6 +24,12 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User getUserByUsername(String username) {
+        try {
+            TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u WHERE u.name = '"+username+"'", User.class);
+            return query.getSingleResult();
+        } catch (PersistenceException ex) {
+            System.out.println(ex.getMessage());
+        }
         return null;
     }
 

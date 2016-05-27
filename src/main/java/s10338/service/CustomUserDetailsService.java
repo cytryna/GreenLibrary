@@ -24,12 +24,10 @@ public class CustomUserDetailsService implements UserDetailsService {
     private CommitService commitService;
 
     @Transactional(readOnly=true)
-    public UserDetails loadUserByUsername(String ssoId)
+    public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
 
-
-        System.err.println(commitService);
-        User user = userService.getUserByUsername(ssoId);
+        User user = userService.getUserByUsername(userName);
         System.out.println("User : "+user);
         if(user==null){
             System.out.println("User not found");
