@@ -64,4 +64,8 @@ public class User {
     public void setTransactions(List<Transaction> libraries) {
         this.transactions = libraries;
     }
+
+    public int getId() {
+        return id;
+    }
 }

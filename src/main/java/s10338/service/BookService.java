@@ -2,6 +2,7 @@ package s10338.service;
 
 
 import s10338.domain.Book;
+import s10338.domain.User;
 
 import java.util.List;
 
@@ -21,5 +22,5 @@ public interface BookService {
 
     void removeBook(int bookId);
 
-    void reservation(int bookId, int userId);
+    void reservation(int bookId, User user);
 }

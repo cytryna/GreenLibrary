@@ -6,7 +6,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import s10338.domain.User;
 import s10338.service.BookService;
+import s10338.service.UserService;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/books")
@@ -15,6 +20,8 @@ public class BooksController {
 
     @Autowired
     private BookService bookService;
+    @Autowired
+    private UserService userService;
 
 
     @RequestMapping(value = "/all")
@@ -46,12 +53,19 @@ public class BooksController {
         return "book";
     }
 
-
+//    @RequestMapping(value = "/account", method = RequestMethod.GET)
+//    public String accountPage(Model model, HttpServletRequest request, HttpServletResponse response) {
+//        User remoteUser = userRepository.findByLogin(request.getRemoteUser());
+//        System.out.println(remoteUser);
+//        model.addAttribute("user", remoteUser);
+//        return "account";
+//    }
     @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public String reservation(@RequestParam("id") int bookId,@RequestParam("userid") int userId, Model model) {
+    public String reservation(@RequestParam("id") int bookId, Model model) {
+//        System.err.println(request.getRemoteUser());
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        bookService.reservation(bookId, 1);
-
+        User user = userService.getUserByUsername(auth.getName());
+        bookService.reservation(bookId, user);
         model.addAttribute("books", bookService.getAllBooks());
         return "reservation";
     }

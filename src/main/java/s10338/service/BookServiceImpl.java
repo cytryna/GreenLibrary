@@ -66,10 +66,8 @@ public class BookServiceImpl implements BookService {
 
     @Override
     @Transactional
-    public void reservation(int bookId, int userId) {
+    public void reservation(int bookId, User user) {
         Book bookById = bookRepository.getBookById(bookId);
-        User user = userRepository.getUserById(userId);
-
         Transaction transaction = new Transaction(new Date(), bookById, user, TransactionType.RESERVATION);
         bookById.getTransaction().add(transaction);
 //        bookRepository.updateTransaction(bookById);// nie ma potrzeby @Transactional pilnuje spójności modelu z bazą
