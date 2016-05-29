@@ -32,14 +32,77 @@ public class Main {
 
             authorTemorary1 = new Author("Adam Mickiewicz");//stworzenie autora w pamieci
             entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Pan Tadeusz", authorTemorary1);
+            saveBook("Sonety krymskie", authorTemorary1);
 
-            bookTemporary = new Book("Pan Tadeusz");//stworzenei książki w pamięci
-            bookTemporary.setAuthor(authorTemorary1);
-            entityManager.persist(bookTemporary);//zapias do bazy
+            authorTemorary1 = new Author("Henryk Sienkiewicz");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Krzyżacy", authorTemorary1);
+            saveBook("Potop", authorTemorary1);
+            saveBook("Pan Wołodyjowski", authorTemorary1);
+            saveBook("Ogniem i mieczem", authorTemorary1);
 
-            bookTemporary = new Book("Sonety Krymskie");//stworzenei książki w pamięci
-            bookTemporary.setAuthor(authorTemorary1);
-            entityManager.persist(bookTemporary);//zapias do bazy
+
+            authorTemorary1 = new Author("Bolesław Prus");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Lalka", authorTemorary1);
+            saveBook("Kamizelka", authorTemorary1);
+            saveBook("Faraon", authorTemorary1);
+            saveBook("Anielka", authorTemorary1);
+
+            authorTemorary1 = new Author("Władysław Raymont");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Chłopi", authorTemorary1);
+            saveBook("Bunt", authorTemorary1);
+            saveBook("Ziemia obiecana", authorTemorary1);
+
+            authorTemorary1 = new Author("Eliza Orzeszkowa");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Obrazek z lat głodowych", authorTemorary1);
+            saveBook("Ostatnia miłość", authorTemorary1);
+            saveBook("Na dnie sumienia", authorTemorary1);
+
+            authorTemorary1 = new Author("Aleksander Fredro");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Zemsta", authorTemorary1);
+            saveBook("Mąż i żona", authorTemorary1);
+            saveBook("Wychowanka", authorTemorary1);
+
+            authorTemorary1 = new Author("William Szekspir");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Romeo i Julia", authorTemorary1);
+            saveBook("Hamlet", authorTemorary1);
+            saveBook("Król Lear", authorTemorary1);
+            saveBook("Sen nocy letniej", authorTemorary1);
+            saveBook("Burza", authorTemorary1);
+
+            authorTemorary1 = new Author("Molier");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Skąpiec", authorTemorary1);
+            saveBook("Natrętny", authorTemorary1);
+
+            authorTemorary1 = new Author("Aleksander Kamiński");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Kamienie na szaniec", authorTemorary1);
+            saveBook("Antek Cwaniak", authorTemorary1);
+            saveBook("Narodziny dzielności", authorTemorary1);
+
+            authorTemorary1 = new Author("Antoine de Saint Exupéry");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Mały książe", authorTemorary1);
+
+            authorTemorary1 = new Author("Juliusz Słowacki");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Balladyna", authorTemorary1);
+
+            authorTemorary1 = new Author("Stanisław Wyspiański");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Wesele", authorTemorary1);
+
+            authorTemorary1 = new Author("Stefan Żeromski");//stworzenie autora w pamieci
+            entityManager.persist(authorTemorary1);//zapis do bazy
+            saveBook("Ludzie bezdomni", authorTemorary1);
+            saveBook("Przedwiośnie", authorTemorary1);
 
             List<User> users = new ArrayList<>();
             users.add(new User("radek@gmail.com", "radek", "radek"));
@@ -67,6 +130,13 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void saveBook(String title, Author authorTemorary1) {
+        Book bookTemporary;
+        bookTemporary = new Book(title);//stworzenei książki w pamięci
+        bookTemporary.setAuthor(authorTemorary1);
+        entityManager.persist(bookTemporary);//zapias do bazy
     }
 
 //    private Book createBook(String title) {
