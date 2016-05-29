@@ -131,7 +131,7 @@
                                             ${c.title}
                                     </td>
                                     <td>
-                                            ${c.authorsString}
+                                            ${c.author}
                                     </td>
                                     <td>
                                         01/04/2012
