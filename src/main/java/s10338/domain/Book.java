@@ -16,12 +16,12 @@ public class Book {
 
     private String title;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(
             name = "authorBook",
-            joinColumns = {@JoinColumn(name = "authorId", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "bookId", referencedColumnName = "id")})
-    private List<Author> authors = new ArrayList<>();
+            inverseJoinColumns= {@JoinColumn(name = "authorId", referencedColumnName = "id")},
+            joinColumns  = {@JoinColumn(name = "bookId", referencedColumnName = "id")})
+    private Author author;
 
     @OneToMany(targetEntity = Transaction.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "book_id", insertable = false, updatable = false)
@@ -45,15 +45,15 @@ public class Book {
 //        return book;
 //    }
 
-    public String getAuthorsString() {
-        if (authors.isEmpty()) {
-            return "";
-        }
-        StringBuilder authorsString = new StringBuilder();
-        authors.forEach(author -> authorsString.append(author.getName() + ", "));
-        authorsString.delete(authorsString.lastIndexOf(", "), authorsString.length());
-        return authorsString.toString();
-    }
+//    public String getAuthorsString() {
+//        if (authors.isEmpty()) {
+//            return "";
+//        }
+//        StringBuilder authorsString = new StringBuilder();
+//        authors.forEach(author -> authorsString.append(author.getName() + ", "));
+//        authorsString.delete(authorsString.lastIndexOf(", "), authorsString.length());
+//        return authorsString.toString();
+//    }
 
     public String getTitle() {
         return title;
@@ -63,12 +63,12 @@ public class Book {
         this.title = title;
     }
 
-    public List<Author> getAuthors() {
-        return authors;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public int getId() {
