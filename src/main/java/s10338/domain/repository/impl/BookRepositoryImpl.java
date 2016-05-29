@@ -57,13 +57,10 @@ public class BookRepositoryImpl implements BookRepository {
 
     private void refreshBooks() {
         if (bookList == null || bookList.isEmpty()) {
-            Query query = entityManager.createQuery("SELECT e FROM Book e");
-
-
-//            SELECT book_item.id , book.title, transaction.dateFrom FROM book_item
-//            inner join book on book_item.book_id = book.id
-//            left outer join transaction on transaction.book_item_id = book_item.id
-//            WHERE transaction.dateTo is null or book_item.id not in (select book_item_id from transaction)
+            Query query = entityManager.createQuery("SELECT book.id , book.title, transaction.dateFrom \n" +
+                    "FROM book \n" +
+                    "left outer join transaction on transaction.book_id = book.id\n" +
+                    "WHERE transaction.dateTo is null or book.id not in (select book_id from transaction)");
             bookList = query.getResultList();
 
             bookList.forEach(book -> System.out.println(book));

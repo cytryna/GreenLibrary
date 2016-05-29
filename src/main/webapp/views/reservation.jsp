@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-5">
             <h3>${book.title}</h3>
-            <p>${book.authorsString}</p>
+            <p>${book.author}</p>
             <%--<p>--%>
             <%--<strong>ISBN: </strong><span class="label label-warning">${book.bookId}</span>--%>
             <%--</p>--%>
