@@ -85,9 +85,9 @@ public class Book {
     //TODO-rwichrowski zminić na dostępną książkę
     private boolean isReserved() {
         if (!transaction.isEmpty()) {
-            if (getLastTransaction().getDateTo() == null || getLastTransaction().getDateTo().after(new Date())) {
+//            if (getLastTransaction().getDateTo() == null || getLastTransaction().getDateTo().after(new Date())) {
                 return true;
-            }
+//            }
         }
         return false;
     }
