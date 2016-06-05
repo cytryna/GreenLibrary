@@ -22,10 +22,6 @@
         <div class="col-md-5">
             <h3>${book.title}</h3>
             <p>${book.author}</p>
-            <%--<p>--%>
-            <%--<strong>ISBN: </strong><span class="label label-warning">${book.bookId}</span>--%>
-            <%--</p>--%>
-            <%--<h4>${book.unitPrice} PLN</h4>--%>
             <p>
                 Dokonano rezerwacji książki ${book.title} na czas 2 tygodni
                 <a href="<spring:url value="/books/all" />" class="btn btn-default">

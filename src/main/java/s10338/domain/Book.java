@@ -3,13 +3,10 @@ package s10338.domain;
 import javax.persistence.*;
 import java.util.*;
 
-//ogólnie
 @Entity
 @Table(name = "book")
 public class Book {
 
-    //    private static Map<String, Book> books = new HashMap<>();
-//TODO-rwichrowski dodać isbn
     @Id
     @GeneratedValue
     private int id;
@@ -31,29 +28,8 @@ public class Book {
     }
 
     public Book(String title) {
-//        books.put(title, new Book(title));
         this.title = title;
     }
-
-//TODO-rwichrowski Jak zaimplementować cash
-//    public static Book create(String title) {
-//        if (books.containsKey(title)) {
-//            return books.get(title);
-//        }
-//        Book book = new Book(title);
-//        books.put(title, book);
-//        return book;
-//    }
-
-//    public String getAuthorsString() {
-//        if (authors.isEmpty()) {
-//            return "";
-//        }
-//        StringBuilder authorsString = new StringBuilder();
-//        authors.forEach(author -> authorsString.append(author.getName() + ", "));
-//        authorsString.delete(authorsString.lastIndexOf(", "), authorsString.length());
-//        return authorsString.toString();
-//    }
 
     public String getTitle() {
         return title;
@@ -82,8 +58,7 @@ public class Book {
         return transaction;
     }
 
-    //TODO-rwichrowski zminić na dostępną książkę
-    private boolean isReserved() {
+        private boolean isAvailable() {
         if (!transaction.isEmpty()) {
 //            if (getLastTransaction().getDateTo() == null || getLastTransaction().getDateTo().after(new Date())) {
                 return true;
@@ -98,7 +73,7 @@ public class Book {
 
 
     public String getReserved() {
-        if (isReserved()) {
+        if (isAvailable()) {
             return "Zarezerwowana";
         }
         return "Dostępna";
