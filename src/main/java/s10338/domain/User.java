@@ -21,7 +21,7 @@ public class User {
     private String password;
 
     @OneToMany(targetEntity = Transaction.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", insertable=false, updatable=false)//// TODO: 29.03.16 Nie jestem pewny czy tu powinno być user_id czy user name i czy w ogole potrzebne to połączenie
+    @JoinColumn(name = "user_id", insertable=false, updatable=false)
     public List<Transaction> transactions;
 
     public User() {
